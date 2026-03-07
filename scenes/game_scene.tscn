@@ -1,0 +1,119 @@
+[gd_scene format=4 uid="uid://blxvvj5ugf7ml"]
+
+[ext_resource type="Script" uid="uid://ff5533xnkc0i" path="res://scripts/gamecontroller.gd" id="1_bw6k5"]
+[ext_resource type="SpriteFrames" uid="uid://i8wtrti1tyfh" path="res://artwork/sprites/player_sprite.tres" id="1_onqr8"]
+[ext_resource type="Texture2D" uid="uid://cm6yrrsswch1g" path="res://artwork/sprites/spritemaps/boat_sprite.png" id="2_y3j0m"]
+[ext_resource type="TileSet" uid="uid://8xletfawswv1" path="res://artwork/tilesets/tilesets.tres" id="2_ycayy"]
+[ext_resource type="Script" uid="uid://c274aa4mkspkk" path="res://scripts/firecontroller.gd" id="3_b5spy"]
+[ext_resource type="Script" uid="uid://xqdw2mrcy0xx" path="res://scripts/playercontroller.gd" id="3_y3j0m"]
+[ext_resource type="SpriteFrames" uid="uid://gh53jw8j3ash" path="res://artwork/sprites/fire_sprite.tres" id="4_utbpp"]
+[ext_resource type="SpriteFrames" uid="uid://byg6hatm3fv0j" path="res://artwork/sprites/tree_sprite.tres" id="6_rurhu"]
+[ext_resource type="Script" uid="uid://bqwcb2o7di3x8" path="res://scripts/treecontroller.gd" id="8_mw25s"]
+[ext_resource type="Script" uid="uid://cbgmj6esiiebr" path="res://scripts/hudcontroller.gd" id="9_utbpp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mw25s"]
+radius = 93.00538
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onqr8"]
+size = Vector2(24, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kk2rg"]
+size = Vector2(31, 38)
+
+[sub_resource type="Theme" id="Theme_b5spy"]
+
+[node name="Game Scene" type="Node2D" unique_id=507364997]
+script = ExtResource("1_bw6k5")
+
+[node name="Camp" type="Node2D" parent="." unique_id=1785340406]
+
+[node name="BoatSprite" type="Sprite2D" parent="Camp" unique_id=1712709876]
+z_index = 1
+position = Vector2(1, -97)
+scale = Vector2(2, 2)
+texture = ExtResource("2_y3j0m")
+
+[node name="Fire" type="Area2D" parent="Camp" unique_id=1870680975]
+position = Vector2(-47, -56)
+script = ExtResource("3_b5spy")
+
+[node name="FireSprite" type="AnimatedSprite2D" parent="Camp/Fire" unique_id=1914899333]
+z_index = 1
+sprite_frames = ExtResource("4_utbpp")
+
+[node name="FireShape" type="CollisionShape2D" parent="Camp/Fire" unique_id=80658255]
+z_index = 1
+shape = SubResource("CircleShape2D_mw25s")
+
+[node name="Player" type="Area2D" parent="." unique_id=536119468]
+z_index = 2
+position = Vector2(-112, -58)
+script = ExtResource("3_y3j0m")
+Speed = 75
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="Player" unique_id=1092428518]
+shape = SubResource("RectangleShape2D_onqr8")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="Player" unique_id=967721006]
+sprite_frames = ExtResource("1_onqr8")
+animation = &"walk_left_right"
+
+[node name="PlayerCamera" type="Camera2D" parent="Player" unique_id=1377683060]
+zoom = Vector2(4, 4)
+
+[node name="TileMap" type="TileMapLayer" parent="." unique_id=1683765491]
+tile_map_data = PackedByteArray("AAACAAIABwAEAAUAAAACAAEABwAFAAMAAAACAAAABwACAAMAAAACAP//BwAEAAUAAAACAP7/BwAEAAUAAAACAP3/BwAEAAUAAAACAPz/BwAEAAUAAAACAPv/BwAFAAMAAAACAPr/BwAEAAIAAAACAPn/BwAEAAUAAAABAAIABwAEAAUAAAABAAEABwABAAMAAAABAAAABwAAAAQAAAABAP//BwACAAMAAAABAP7/BwAEAAUAAAABAP3/BwAEAAUAAAABAPz/BwAEAAUAAAABAPv/BwABAAMAAAABAPr/BwAAAAAAAAABAPn/BwACAAMAAAAAAAIABwAEAAUAAAAAAAEABwABAAMAAAAAAAAABwABAAAAAAAAAP//BwAAAAQAAAAAAP7/BwACAAMAAAAAAP3/BwAEAAUAAAAAAPz/BwAEAAUAAAAAAPv/BwABAAMAAAAAAPr/BwAAAAAAAAAAAPn/BwAFAAIAAAD//wIABwAEAAUAAAD//wEABwABAAMAAAD//wAABwABAAAAAAD/////BwACAAAAAAD///7/BwAAAAQAAAD///3/BwAEAAIAAAD///z/BwAEAAIAAAD///v/BwADAAQAAAD///r/BwACAAAAAAD///n/BwAFAAIAAAD+/wIABwAEAAUAAAD+/wEABwABAAMAAAD+/wAABwAAAAAAAAD+////BwACAAAAAAD+//7/BwABAAAAAAD+//3/BwAAAAAAAAD+//z/BwAAAAAAAAD+//v/BwABAAAAAAD+//r/BwACAAAAAAD+//n/BwAFAAIAAAD9/wIABwAEAAUAAAD9/wEABwABAAMAAAD9/wAABwACAAAAAAD9////BwACAAAAAAD9//7/BwABAAAAAAD9//3/BwACAAAAAAD9//z/BwACAAAAAAD9//v/BwABAAAAAAD9//r/BwABAAAAAAD9//n/BwAFAAIAAAD8/wIABwAEAAUAAAD8/wEABwABAAMAAAD8/wAABwACAAAAAAD8////BwAAAAAAAAD8//7/BwABAAAAAAD8//3/BwAAAAAAAAD8//z/BwACAAAAAAD8//v/BwABAAAAAAD8//r/BwAAAAAAAAD8//n/BwAFAAIAAAD7/wIABwAEAAUAAAD7/wEABwABAAMAAAD7/wAABwABAAAAAAD7////BwABAAAAAAD7//7/BwABAAAAAAD7//3/BwACAAAAAAD7//z/BwAAAAAAAAD7//v/BwACAAAAAAD7//r/BwAAAAAAAAD7//n/BwAFAAIAAAD6/wIABwAEAAUAAAD6/wEABwABAAMAAAD6/wAABwABAAAAAAD6////BwAAAAAAAAD6//7/BwAAAAAAAAD6//3/BwACAAAAAAD6//z/BwACAAAAAAD6//v/BwACAAAAAAD6//r/BwAAAAAAAAD6//n/BwAFAAIAAAD5/wIABwAEAAUAAAD5/wEABwABAAMAAAD5/wAABwAAAAAAAAD5////BwACAAAAAAD5//7/BwABAAAAAAD5//3/BwACAAAAAAD5//z/BwACAAAAAAD5//v/BwACAAAAAAD5//r/BwABAAAAAAD5//n/BwAFAAIAAAD4/wIABwAEAAUAAAD4/wEABwABAAMAAAD4/wAABwAAAAAAAAD4////BwACAAAAAAD4//7/BwACAAAAAAD4//3/BwACAAAAAAD4//z/BwAAAAAAAAD4//v/BwABAAAAAAD4//r/BwAAAAAAAAD4//n/BwAFAAIAAAD3/wIABwAEAAUAAAD3/wEABwABAAMAAAD3/wAABwABAAAAAAD3////BwACAAAAAAD3//7/BwABAAAAAAD3//3/BwABAAAAAAD3//z/BwABAAAAAAD3//v/BwABAAAAAAD3//r/BwABAAAAAAD3//n/BwAFAAIAAAD2/wIABwAEAAUAAAD2/wEABwABAAMAAAD2/wAABwACAAAAAAD2////BwABAAAAAAD2//7/BwACAAAAAAD2//3/BwABAAAAAAD2//z/BwABAAAAAAD2//v/BwACAAAAAAD2//r/BwABAAQAAAD2//n/BwADAAMAAAD1/wIABwAEAAUAAAD1/wEABwAEAAMAAAD1/wAABwACAAQAAAD1////BwABAAAAAAD1//7/BwACAAAAAAD1//3/BwACAAAAAAD1//z/BwABAAAAAAD1//v/BwABAAAAAAD1//r/BwAFAAIAAAD1//n/BwAEAAUAAAD0/wIABwAEAAUAAAD0/wEABwAEAAUAAAD0/wAABwAEAAMAAAD0////BwAAAAMAAAD0//7/BwAAAAMAAAD0//3/BwAAAAMAAAD0//z/BwAAAAMAAAD0//v/BwAAAAMAAAD0//r/BwADAAMAAAD0//n/BwAEAAUAAAADAP//BwAEAAUAAAADAPv/BwAEAAUAAAADAPr/BwAEAAUAAAADAPn/BwAEAAUAAAABAPj/BwAEAAUAAAAAAPj/BwAEAAUAAAD///j/BwAEAAUAAAD+//j/BwAEAAUAAAD9//j/BwAEAAUAAAD8//j/BwAEAAUAAAD7//j/BwAEAAUAAAD6//j/BwAEAAUAAAD5//j/BwAEAAUAAAD4//j/BwAEAAUAAAD3//j/BwAEAAUAAAD2//j/BwAEAAUAAAD1//j/BwAEAAUAAADz//r/BwAEAAUAAADz//v/BwAEAAUAAADz//n/BwAEAAUAAAD0//j/BwAEAAUAAADz//j/BwAEAAUAAADy//n/BwAEAAUAAADy//r/BwAEAAUAAADy//v/BwAEAAUAAADy//z/BwAEAAUAAADy//3/BwAEAAUAAADy//7/BwAEAAUAAADy////BwAEAAUAAADy/wAABwAEAAUAAADy/wEABwAEAAUAAADz/wEABwAEAAUAAADz/wIABwAEAAUAAADz/wAABwAEAAUAAADz////BwAEAAUAAADz//3/BwAEAAUAAADz//z/BwAEAAUAAADz//7/BwAEAAUAAAADAAIABwAEAAUAAAADAAEABwAEAAUAAAAEAAEABwAEAAUAAAAEAAAABwAEAAUAAAADAAAABwAEAAUAAAAEAP//BwAEAAUAAAAEAP7/BwAEAAUAAAADAP3/BwAEAAUAAAADAP7/BwAEAAUAAAAEAP3/BwAEAAUAAAADAPz/BwAEAAUAAAA=")
+tile_set = ExtResource("2_ycayy")
+rendering_quadrant_size = 32
+physics_quadrant_size = 32
+
+[node name="Tree" type="Area2D" parent="TileMap" unique_id=1842935375]
+script = ExtResource("8_mw25s")
+
+[node name="TreeSprite" type="AnimatedSprite2D" parent="TileMap/Tree" unique_id=1161709142]
+position = Vector2(-141, -58)
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("6_rurhu")
+
+[node name="TreeCollision" type="CollisionShape2D" parent="TileMap/Tree" unique_id=1076080088]
+position = Vector2(-143.5, -58)
+shape = SubResource("RectangleShape2D_kk2rg")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1417217512]
+layer = 10
+script = ExtResource("9_utbpp")
+
+[node name="Margins" type="MarginContainer" parent="HUD" unique_id=271765911]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Vbox" type="VBoxContainer" parent="HUD/Margins" unique_id=579847679]
+layout_mode = 2
+
+[node name="ExposureLabel" type="Label" parent="HUD/Margins/Vbox" unique_id=1502429401]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme = SubResource("Theme_b5spy")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+text = "Exposure: 100"
+
+[node name="HungerLabel" type="Label" parent="HUD/Margins/Vbox" unique_id=1187276877]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme = SubResource("Theme_b5spy")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+text = "Hunger: 100"

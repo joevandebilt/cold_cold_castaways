@@ -1,0 +1,82 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://i8wtrti1tyfh"]
+
+[ext_resource type="Texture2D" uid="uid://7g1oui0cahcf" path="res://artwork/sprites/spritemaps/player_sprite.png" id="1_wbdsi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbdsi"]
+atlas = ExtResource("1_wbdsi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq472"]
+atlas = ExtResource("1_wbdsi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_186e4"]
+atlas = ExtResource("1_wbdsi")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qit0"]
+atlas = ExtResource("1_wbdsi")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kic4b"]
+atlas = ExtResource("1_wbdsi")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6sp2"]
+atlas = ExtResource("1_wbdsi")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pemkj"]
+atlas = ExtResource("1_wbdsi")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j63la"]
+atlas = ExtResource("1_wbdsi")
+region = Rect2(32, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbdsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq472")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_186e4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qit0")
+}],
+"loop": true,
+"name": &"walk_away",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kic4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6sp2")
+}],
+"loop": true,
+"name": &"walk_left_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pemkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j63la")
+}],
+"loop": true,
+"name": &"walk_towards",
+"speed": 5.0
+}]
