@@ -2,99 +2,328 @@
 
 [ext_resource type="Script" uid="uid://ff5533xnkc0i" path="res://scripts/gamecontroller.gd" id="1_bw6k5"]
 [ext_resource type="SpriteFrames" uid="uid://i8wtrti1tyfh" path="res://artwork/sprites/player_sprite.tres" id="1_onqr8"]
+[ext_resource type="PackedScene" uid="uid://b67uj15hubua" path="res://prefabs/Fire.tscn" id="2_103ce"]
 [ext_resource type="Texture2D" uid="uid://cm6yrrsswch1g" path="res://artwork/sprites/spritemaps/boat_sprite.png" id="2_y3j0m"]
 [ext_resource type="TileSet" uid="uid://8xletfawswv1" path="res://artwork/tilesets/tilesets.tres" id="2_ycayy"]
-[ext_resource type="Script" uid="uid://c274aa4mkspkk" path="res://scripts/firecontroller.gd" id="3_b5spy"]
 [ext_resource type="Script" uid="uid://xqdw2mrcy0xx" path="res://scripts/playercontroller.gd" id="3_y3j0m"]
-[ext_resource type="SpriteFrames" uid="uid://gh53jw8j3ash" path="res://artwork/sprites/fire_sprite.tres" id="4_utbpp"]
-[ext_resource type="SpriteFrames" uid="uid://byg6hatm3fv0j" path="res://artwork/sprites/tree_sprite.tres" id="6_rurhu"]
-[ext_resource type="Script" uid="uid://bqwcb2o7di3x8" path="res://scripts/treecontroller.gd" id="8_mw25s"]
+[ext_resource type="Texture2D" uid="uid://dcpmt1elkqpwe" path="res://artwork/menus/icons/wood_icon.png" id="4_5ay1a"]
+[ext_resource type="LabelSettings" uid="uid://d3ihwbkwtpaj2" path="res://artwork/fonts/context_menu_label_settings.tres" id="4_liy57"]
+[ext_resource type="Texture2D" uid="uid://pxnqk5im3hec" path="res://artwork/menus/icons/number_icons.png" id="5_5ay1a"]
+[ext_resource type="Script" uid="uid://c200gu8vmom62" path="res://scripts/boatcontroller.gd" id="7_77hjl"]
+[ext_resource type="Texture2D" uid="uid://bc0e7137fsy2s" path="res://artwork/menus/icons/food_icon.png" id="8_mwyo0"]
+[ext_resource type="Texture2D" uid="uid://cjxktyslgcd3k" path="res://artwork/menus/icons/medecine_icons.png" id="9_s76x2"]
 [ext_resource type="Script" uid="uid://cbgmj6esiiebr" path="res://scripts/hudcontroller.gd" id="9_utbpp"]
+[ext_resource type="Texture2D" uid="uid://bakr1ulur7025" path="res://artwork/menus/icons/rope_icon.png" id="10_pb36m"]
+[ext_resource type="Texture2D" uid="uid://ro23w2fabofr" path="res://artwork/menus/icons/coat_icon.png" id="12_85lt4"]
+[ext_resource type="FontFile" uid="uid://bh8kladnacpwl" path="res://artwork/fonts/Tiny5-Regular.ttf" id="15_ldkr4"]
+[ext_resource type="PackedScene" uid="uid://uenspw2fvri8" path="res://prefabs/Tree.tscn" id="16_pb36m"]
+[ext_resource type="Script" uid="uid://c7orfyg41jciq" path="res://scripts/mapcontroller.gd" id="16_xgstd"]
+[ext_resource type="PackedScene" uid="uid://47t3xfgeb7sj" path="res://prefabs/Fern.tscn" id="17_85lt4"]
+[ext_resource type="Texture2D" uid="uid://o7hv1wdm2s23" path="res://artwork/menus/icons/health_icon.png" id="19_ro0ie"]
+[ext_resource type="Texture2D" uid="uid://bpfeivd7rhaoi" path="res://artwork/menus/icons/thermo_icon.png" id="21_103ce"]
+[ext_resource type="Texture2D" uid="uid://bvukh317303wu" path="res://artwork/menus/icons/fibre_icons.png" id="22_103ce"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mw25s"]
-radius = 93.00538
+[sub_resource type="CircleShape2D" id="CircleShape2D_rvs2r"]
+radius = 45.54119
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ay1a"]
+atlas = ExtResource("5_5ay1a")
+region = Rect2(0, 0, 11, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldkr4"]
+atlas = ExtResource("5_5ay1a")
+region = Rect2(0, 8, 11, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liy57"]
+atlas = ExtResource("5_5ay1a")
+region = Rect2(11, 24, 11, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onqr8"]
 size = Vector2(24, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kk2rg"]
-size = Vector2(31, 38)
+[sub_resource type="CircleShape2D" id="CircleShape2D_liy57"]
+radius = 29.0
 
 [sub_resource type="Theme" id="Theme_b5spy"]
+default_font = ExtResource("15_ldkr4")
 
 [node name="Game Scene" type="Node2D" unique_id=507364997]
 script = ExtResource("1_bw6k5")
 
 [node name="Camp" type="Node2D" parent="." unique_id=1785340406]
 
-[node name="BoatSprite" type="Sprite2D" parent="Camp" unique_id=1712709876]
+[node name="Boat" type="Area2D" parent="Camp" unique_id=1196655455]
+position = Vector2(-40, -100)
+script = ExtResource("7_77hjl")
+
+[node name="BoatSprite" type="Sprite2D" parent="Camp/Boat" unique_id=1712709876]
 z_index = 1
-position = Vector2(1, -97)
 scale = Vector2(2, 2)
 texture = ExtResource("2_y3j0m")
 
-[node name="Fire" type="Area2D" parent="Camp" unique_id=1870680975]
-position = Vector2(-47, -56)
-script = ExtResource("3_b5spy")
-
-[node name="FireSprite" type="AnimatedSprite2D" parent="Camp/Fire" unique_id=1914899333]
+[node name="BoatCollision" type="CollisionShape2D" parent="Camp/Boat" unique_id=782539550]
 z_index = 1
-sprite_frames = ExtResource("4_utbpp")
+shape = SubResource("CircleShape2D_rvs2r")
 
-[node name="FireShape" type="CollisionShape2D" parent="Camp/Fire" unique_id=80658255]
-z_index = 1
-shape = SubResource("CircleShape2D_mw25s")
+[node name="BoatMenu" type="PanelContainer" parent="Camp/Boat" unique_id=480261999]
+z_index = 3
+offset_left = 33.0
+offset_top = -100.0
+offset_right = 122.0
+offset_bottom = 84.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Player" type="Area2D" parent="." unique_id=536119468]
+[node name="Margins" type="MarginContainer" parent="Camp/Boat/BoatMenu" unique_id=909495195]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camp/Boat/BoatMenu/Margins" unique_id=1019810141]
+layout_mode = 2
+
+[node name="ObjectiveLabel" type="Label" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer" unique_id=1291807977]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 4
+text = "Fix the Boat to Escape"
+label_settings = ExtResource("4_liy57")
+
+[node name="WoodNeededLabel" type="Label" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer" unique_id=959175128]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 4
+text = "Wood Needed: 10000"
+label_settings = ExtResource("4_liy57")
+
+[node name="AddWoodButtons" type="HBoxContainer" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer" unique_id=1336424820]
+layout_mode = 2
+
+[node name="ItemNeededIcon" type="TextureRect" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer/AddWoodButtons" unique_id=1268491530]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_5ay1a")
+
+[node name="Add1WoodButton" type="TextureButton" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer/AddWoodButtons" unique_id=1837615134]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_5ay1a")
+
+[node name="Add10WoodButton" type="TextureButton" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer/AddWoodButtons" unique_id=459596095]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_ldkr4")
+
+[node name="Add100WoodButton" type="TextureButton" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer/AddWoodButtons" unique_id=691811020]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_liy57")
+
+[node name="FoodNeededLabel" type="Label" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer" unique_id=749046818]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 4
+text = "Food Needed: 5000"
+label_settings = ExtResource("4_liy57")
+
+[node name="AddFoodButtons" type="HBoxContainer" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer" unique_id=152108602]
+layout_mode = 2
+
+[node name="ItemNeededIcon" type="TextureRect" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer/AddFoodButtons" unique_id=1574232190]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("8_mwyo0")
+
+[node name="Add1FoodButton" type="TextureButton" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer/AddFoodButtons" unique_id=1444488360]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_5ay1a")
+
+[node name="Add10FoodButton" type="TextureButton" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer/AddFoodButtons" unique_id=2128726071]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_ldkr4")
+
+[node name="Add100FoodButton" type="TextureButton" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer/AddFoodButtons" unique_id=1113795576]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_liy57")
+
+[node name="RopeNeededLabel" type="Label" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer" unique_id=909423734]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 4
+text = "Food Needed: 5000"
+label_settings = ExtResource("4_liy57")
+
+[node name="AddRopeButtons" type="HBoxContainer" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer" unique_id=792484392]
+layout_mode = 2
+
+[node name="ItemNeededIcon" type="TextureRect" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer/AddRopeButtons" unique_id=2064115334]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("10_pb36m")
+
+[node name="Add1RopeButton" type="TextureButton" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer/AddRopeButtons" unique_id=1571159463]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_5ay1a")
+
+[node name="Add10RopeButton" type="TextureButton" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer/AddRopeButtons" unique_id=1271606143]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_ldkr4")
+
+[node name="Add100RopeButton" type="TextureButton" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer/AddRopeButtons" unique_id=98045046]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_liy57")
+
+[node name="MedecineNeededLabel" type="Label" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer" unique_id=791316085]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 4
+text = "Medecine Needed: 1000"
+label_settings = ExtResource("4_liy57")
+
+[node name="AddMedsButtons" type="HBoxContainer" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer" unique_id=109632735]
+layout_mode = 2
+
+[node name="ItemNeededIcon" type="TextureRect" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer/AddMedsButtons" unique_id=155985860]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("9_s76x2")
+
+[node name="Add1MedsButton" type="TextureButton" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer/AddMedsButtons" unique_id=1488201554]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_5ay1a")
+
+[node name="Add10MedsButton" type="TextureButton" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer/AddMedsButtons" unique_id=706930849]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_ldkr4")
+
+[node name="CoatsNeededLabel" type="Label" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer" unique_id=1417889565]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 4
+text = "Coats Needed: 1000"
+label_settings = ExtResource("4_liy57")
+
+[node name="AddCoatsButtons" type="HBoxContainer" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer" unique_id=1614751268]
+layout_mode = 2
+
+[node name="ItemNeededIcon" type="TextureRect" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer/AddCoatsButtons" unique_id=1734257287]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("12_85lt4")
+
+[node name="AddCoatButton" type="TextureButton" parent="Camp/Boat/BoatMenu/Margins/VBoxContainer/AddCoatsButtons" unique_id=1932862283]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_5ay1a")
+
+[node name="Player" type="CharacterBody2D" parent="Camp" unique_id=768969451]
 z_index = 2
-position = Vector2(-112, -58)
+position = Vector2(-40, -86)
+collision_layer = 2
 script = ExtResource("3_y3j0m")
-Speed = 75
+Speed = 1000
 
-[node name="PlayerCollision" type="CollisionShape2D" parent="Player" unique_id=1092428518]
+[node name="PlayerCollision" type="CollisionShape2D" parent="Camp/Player" unique_id=1092428518]
 shape = SubResource("RectangleShape2D_onqr8")
 
-[node name="PlayerSprite" type="AnimatedSprite2D" parent="Player" unique_id=967721006]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="Camp/Player" unique_id=967721006]
 sprite_frames = ExtResource("1_onqr8")
-animation = &"walk_left_right"
+animation = &"walk_towards"
 
-[node name="PlayerCamera" type="Camera2D" parent="Player" unique_id=1377683060]
+[node name="PlayerCamera" type="Camera2D" parent="Camp/Player" unique_id=1377683060]
 zoom = Vector2(4, 4)
 
+[node name="PlayerInteractions" type="Area2D" parent="Camp/Player" unique_id=1620836292]
+
+[node name="PlayerInteractionRadius" type="CollisionShape2D" parent="Camp/Player/PlayerInteractions" unique_id=1460610333]
+shape = SubResource("CircleShape2D_liy57")
+
+[node name="Hunter" type="Area2D" parent="Camp" unique_id=53359647]
+
+[node name="Carpenter" type="Area2D" parent="Camp" unique_id=22004273]
+
+[node name="Medic" type="Area2D" parent="Camp" unique_id=1483256709]
+
+[node name="Fire" parent="Camp" unique_id=1547280524 instance=ExtResource("2_103ce")]
+position = Vector2(-180, -56)
+
 [node name="TileMap" type="TileMapLayer" parent="." unique_id=1683765491]
-tile_map_data = PackedByteArray("AAACAAIABwAEAAUAAAACAAEABwAFAAMAAAACAAAABwACAAMAAAACAP//BwAEAAUAAAACAP7/BwAEAAUAAAACAP3/BwAEAAUAAAACAPz/BwAEAAUAAAACAPv/BwAFAAMAAAACAPr/BwAEAAIAAAACAPn/BwAEAAUAAAABAAIABwAEAAUAAAABAAEABwABAAMAAAABAAAABwAAAAQAAAABAP//BwACAAMAAAABAP7/BwAEAAUAAAABAP3/BwAEAAUAAAABAPz/BwAEAAUAAAABAPv/BwABAAMAAAABAPr/BwAAAAAAAAABAPn/BwACAAMAAAAAAAIABwAEAAUAAAAAAAEABwABAAMAAAAAAAAABwABAAAAAAAAAP//BwAAAAQAAAAAAP7/BwACAAMAAAAAAP3/BwAEAAUAAAAAAPz/BwAEAAUAAAAAAPv/BwABAAMAAAAAAPr/BwAAAAAAAAAAAPn/BwAFAAIAAAD//wIABwAEAAUAAAD//wEABwABAAMAAAD//wAABwABAAAAAAD/////BwACAAAAAAD///7/BwAAAAQAAAD///3/BwAEAAIAAAD///z/BwAEAAIAAAD///v/BwADAAQAAAD///r/BwACAAAAAAD///n/BwAFAAIAAAD+/wIABwAEAAUAAAD+/wEABwABAAMAAAD+/wAABwAAAAAAAAD+////BwACAAAAAAD+//7/BwABAAAAAAD+//3/BwAAAAAAAAD+//z/BwAAAAAAAAD+//v/BwABAAAAAAD+//r/BwACAAAAAAD+//n/BwAFAAIAAAD9/wIABwAEAAUAAAD9/wEABwABAAMAAAD9/wAABwACAAAAAAD9////BwACAAAAAAD9//7/BwABAAAAAAD9//3/BwACAAAAAAD9//z/BwACAAAAAAD9//v/BwABAAAAAAD9//r/BwABAAAAAAD9//n/BwAFAAIAAAD8/wIABwAEAAUAAAD8/wEABwABAAMAAAD8/wAABwACAAAAAAD8////BwAAAAAAAAD8//7/BwABAAAAAAD8//3/BwAAAAAAAAD8//z/BwACAAAAAAD8//v/BwABAAAAAAD8//r/BwAAAAAAAAD8//n/BwAFAAIAAAD7/wIABwAEAAUAAAD7/wEABwABAAMAAAD7/wAABwABAAAAAAD7////BwABAAAAAAD7//7/BwABAAAAAAD7//3/BwACAAAAAAD7//z/BwAAAAAAAAD7//v/BwACAAAAAAD7//r/BwAAAAAAAAD7//n/BwAFAAIAAAD6/wIABwAEAAUAAAD6/wEABwABAAMAAAD6/wAABwABAAAAAAD6////BwAAAAAAAAD6//7/BwAAAAAAAAD6//3/BwACAAAAAAD6//z/BwACAAAAAAD6//v/BwACAAAAAAD6//r/BwAAAAAAAAD6//n/BwAFAAIAAAD5/wIABwAEAAUAAAD5/wEABwABAAMAAAD5/wAABwAAAAAAAAD5////BwACAAAAAAD5//7/BwABAAAAAAD5//3/BwACAAAAAAD5//z/BwACAAAAAAD5//v/BwACAAAAAAD5//r/BwABAAAAAAD5//n/BwAFAAIAAAD4/wIABwAEAAUAAAD4/wEABwABAAMAAAD4/wAABwAAAAAAAAD4////BwACAAAAAAD4//7/BwACAAAAAAD4//3/BwACAAAAAAD4//z/BwAAAAAAAAD4//v/BwABAAAAAAD4//r/BwAAAAAAAAD4//n/BwAFAAIAAAD3/wIABwAEAAUAAAD3/wEABwABAAMAAAD3/wAABwABAAAAAAD3////BwACAAAAAAD3//7/BwABAAAAAAD3//3/BwABAAAAAAD3//z/BwABAAAAAAD3//v/BwABAAAAAAD3//r/BwABAAAAAAD3//n/BwAFAAIAAAD2/wIABwAEAAUAAAD2/wEABwABAAMAAAD2/wAABwACAAAAAAD2////BwABAAAAAAD2//7/BwACAAAAAAD2//3/BwABAAAAAAD2//z/BwABAAAAAAD2//v/BwACAAAAAAD2//r/BwABAAQAAAD2//n/BwADAAMAAAD1/wIABwAEAAUAAAD1/wEABwAEAAMAAAD1/wAABwACAAQAAAD1////BwABAAAAAAD1//7/BwACAAAAAAD1//3/BwACAAAAAAD1//z/BwABAAAAAAD1//v/BwABAAAAAAD1//r/BwAFAAIAAAD1//n/BwAEAAUAAAD0/wIABwAEAAUAAAD0/wEABwAEAAUAAAD0/wAABwAEAAMAAAD0////BwAAAAMAAAD0//7/BwAAAAMAAAD0//3/BwAAAAMAAAD0//z/BwAAAAMAAAD0//v/BwAAAAMAAAD0//r/BwADAAMAAAD0//n/BwAEAAUAAAADAP//BwAEAAUAAAADAPv/BwAEAAUAAAADAPr/BwAEAAUAAAADAPn/BwAEAAUAAAABAPj/BwAEAAUAAAAAAPj/BwAEAAUAAAD///j/BwAEAAUAAAD+//j/BwAEAAUAAAD9//j/BwAEAAUAAAD8//j/BwAEAAUAAAD7//j/BwAEAAUAAAD6//j/BwAEAAUAAAD5//j/BwAEAAUAAAD4//j/BwAEAAUAAAD3//j/BwAEAAUAAAD2//j/BwAEAAUAAAD1//j/BwAEAAUAAADz//r/BwAEAAUAAADz//v/BwAEAAUAAADz//n/BwAEAAUAAAD0//j/BwAEAAUAAADz//j/BwAEAAUAAADy//n/BwAEAAUAAADy//r/BwAEAAUAAADy//v/BwAEAAUAAADy//z/BwAEAAUAAADy//3/BwAEAAUAAADy//7/BwAEAAUAAADy////BwAEAAUAAADy/wAABwAEAAUAAADy/wEABwAEAAUAAADz/wEABwAEAAUAAADz/wIABwAEAAUAAADz/wAABwAEAAUAAADz////BwAEAAUAAADz//3/BwAEAAUAAADz//z/BwAEAAUAAADz//7/BwAEAAUAAAADAAIABwAEAAUAAAADAAEABwAEAAUAAAAEAAEABwAEAAUAAAAEAAAABwAEAAUAAAADAAAABwAEAAUAAAAEAP//BwAEAAUAAAAEAP7/BwAEAAUAAAADAP3/BwAEAAUAAAADAP7/BwAEAAUAAAAEAP3/BwAEAAUAAAADAPz/BwAEAAUAAAA=")
+tile_map_data = PackedByteArray("AAD///z/BwAAAAAAAAD///3/BwABAAAAAAD9/wAABwACAAAAAAD8/wAABwACAAAAAAD7/wAABwABAAAAAAD6/wAABwABAAAAAAD5/wAABwAAAAAAAAD4/wAABwABAAAAAAD4////BwAAAAAAAAD4//7/BwAAAAAAAAD4//3/BwAAAAAAAAD4//z/BwAAAAAAAAD5//z/BwABAAAAAAD6//z/BwABAAAAAAD7//z/BwAAAAAAAAD8//z/BwACAAAAAAD9//z/BwAAAAAAAAD+//z/BwACAAAAAAD+//3/BwAAAAAAAAD9//3/BwACAAAAAAD8//3/BwACAAAAAAD7//3/BwACAAAAAAD6//3/BwABAAAAAAD5//3/BwACAAAAAAD5//7/BwABAAAAAAD6//7/BwABAAAAAAD6////BwAAAAAAAAD7////BwACAAAAAAD7//7/BwAAAAAAAAD8//7/BwACAAAAAAD9//7/BwAAAAAAAAD+//7/BwABAAAAAAD9////BwABAAAAAAD8////BwACAAAAAAD5////BwAAAAAAAAAAAP3/BwABAAAAAAAAAPz/BwABAAAAAAADAAQABwABAAUAAAADAAMABwAAAAQAAAADAAIABwAEAAIAAAADAAEABwAEAAIAAAADAAAABwAEAAIAAAADAP//BwAEAAIAAAADAP7/BwAEAAIAAAADAP3/BwAEAAIAAAADAPz/BwAEAAIAAAADAPv/BwAEAAIAAAADAPr/BwAEAAIAAAACAAQABwACAAQAAAACAAMABwABAAAAAAACAAIABwACAAAAAAACAAEABwABAAAAAAACAAAABwABAAAAAAACAP//BwAAAAAAAAACAP7/BwAAAAAAAAACAP3/BwABAAAAAAACAPz/BwAAAAAAAAACAPv/BwABAAAAAAACAPr/BwABAAQAAAABAAQABwABAAMAAAABAAMABwABAAAAAAABAAIABwAAAAAAAAABAAEABwABAAAAAAABAAAABwABAAAAAAABAP//BwABAAAAAAABAP7/BwACAAAAAAABAP3/BwAAAAAAAAABAPz/BwACAAAAAAABAPv/BwACAAAAAAABAPr/BwAFAAIAAAAAAAQABwABAAMAAAAAAAMABwACAAAAAAAAAAIABwABAAAAAAAAAAEABwACAAAAAAAAAAAABwAAAAAAAAAAAP//BwABAAAAAAAAAP7/BwAAAAAAAAAAAPv/BwAAAAAAAAAAAPr/BwAFAAIAAAD//wQABwABAAMAAAD//wMABwACAAAAAAD//wIABwAAAAAAAAD//wEABwACAAAAAAD//wAABwACAAAAAAD/////BwAAAAAAAAD///7/BwABAAAAAAD///v/BwACAAAAAAD///r/BwAFAAIAAAD+/wQABwABAAMAAAD+/wMABwABAAAAAAD+/wIABwAAAAAAAAD+/wEABwACAAAAAAD+/wAABwABAAAAAAD+////BwABAAAAAAD+//v/BwACAAAAAAD+//r/BwAFAAIAAAD9/wQABwABAAMAAAD9/wMABwAAAAAAAAD9/wIABwABAAAAAAD9/wEABwABAAAAAAD9//v/BwACAAAAAAD9//r/BwAFAAIAAAD8/wQABwABAAMAAAD8/wMABwACAAAAAAD8/wIABwAAAAAAAAD8/wEABwACAAAAAAD8//v/BwACAAAAAAD8//r/BwAFAAIAAAD7/wQABwABAAMAAAD7/wMABwABAAAAAAD7/wIABwACAAAAAAD7/wEABwAAAAAAAAD7//v/BwAAAAAAAAD7//r/BwAFAAIAAAD6/wQABwABAAMAAAD6/wMABwABAAAAAAD6/wIABwAAAAAAAAD6/wEABwAAAAAAAAD6//v/BwABAAAAAAD6//r/BwAFAAIAAAD5/wQABwABAAMAAAD5/wMABwABAAAAAAD5/wIABwAAAAAAAAD5/wEABwACAAAAAAD5//v/BwABAAAAAAD5//r/BwAFAAIAAAD4/wQABwABAAMAAAD4/wMABwAAAAAAAAD4/wIABwABAAAAAAD4/wEABwABAAAAAAD4//v/BwAAAAAAAAD4//r/BwAFAAIAAAD3/wQABwABAAMAAAD3/wMABwACAAAAAAD3/wIABwACAAAAAAD3/wEABwAAAAAAAAD3/wAABwAAAAAAAAD3////BwAAAAAAAAD3//7/BwABAAAAAAD3//3/BwACAAAAAAD3//z/BwACAAAAAAD3//v/BwAAAAAAAAD3//r/BwAFAAIAAAD2/wQABwABAAMAAAD2/wMABwABAAAAAAD2/wIABwAAAAAAAAD2/wEABwABAAAAAAD2/wAABwABAAAAAAD2////BwAAAAAAAAD2//7/BwABAAAAAAD2//3/BwAAAAAAAAD2//z/BwACAAAAAAD2//v/BwACAAAAAAD2//r/BwAFAAIAAAD1/wQABwABAAMAAAD1/wMABwABAAQAAAD1/wIABwAAAAMAAAD1/wEABwAAAAMAAAD1/wAABwAAAAMAAAD1////BwAAAAMAAAD1//7/BwAAAAMAAAD1//3/BwAAAAMAAAD1//z/BwAAAAMAAAD1//v/BwAAAAMAAAD1//r/BwAAAAMAAAA=")
 tile_set = ExtResource("2_ycayy")
 rendering_quadrant_size = 32
 physics_quadrant_size = 32
+script = ExtResource("16_xgstd")
 
-[node name="Tree" type="Area2D" parent="TileMap" unique_id=1842935375]
-script = ExtResource("8_mw25s")
+[node name="Tree" parent="TileMap" unique_id=2125284981 instance=ExtResource("16_pb36m")]
+position = Vector2(-151, -79)
 
-[node name="TreeSprite" type="AnimatedSprite2D" parent="TileMap/Tree" unique_id=1161709142]
-position = Vector2(-141, -58)
-scale = Vector2(1.5, 1.5)
-sprite_frames = ExtResource("6_rurhu")
-
-[node name="TreeCollision" type="CollisionShape2D" parent="TileMap/Tree" unique_id=1076080088]
-position = Vector2(-143.5, -58)
-shape = SubResource("RectangleShape2D_kk2rg")
+[node name="Fern" parent="TileMap" unique_id=874775548 instance=ExtResource("17_85lt4")]
+position = Vector2(-24, 34)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1417217512]
 layer = 10
 script = ExtResource("9_utbpp")
 
-[node name="Margins" type="MarginContainer" parent="HUD" unique_id=271765911]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="StatsContainer" type="MarginContainer" parent="HUD" unique_id=271765911]
+offset_right = 130.0
+offset_bottom = 96.0
+scale = Vector2(1.5, 1.5)
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="Vbox" type="VBoxContainer" parent="HUD/Margins" unique_id=579847679]
+[node name="StatsPanel" type="PanelContainer" parent="HUD/StatsContainer" unique_id=449079863]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+
+[node name="StatsMargin" type="MarginContainer" parent="HUD/StatsContainer/StatsPanel" unique_id=1727295743]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="StatsVbox" type="VBoxContainer" parent="HUD/StatsContainer/StatsPanel/StatsMargin" unique_id=579847679]
 layout_mode = 2
 
-[node name="ExposureLabel" type="Label" parent="HUD/Margins/Vbox" unique_id=1502429401]
+[node name="HealthStat" type="HBoxContainer" parent="HUD/StatsContainer/StatsPanel/StatsMargin/StatsVbox" unique_id=1625117043]
+layout_mode = 2
+
+[node name="HealthIcon" type="TextureRect" parent="HUD/StatsContainer/StatsPanel/StatsMargin/StatsVbox/HealthStat" unique_id=358174550]
+layout_mode = 2
+texture = ExtResource("19_ro0ie")
+
+[node name="HealthLabel" type="Label" parent="HUD/StatsContainer/StatsPanel/StatsMargin/StatsVbox/HealthStat" unique_id=759154134]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme = SubResource("Theme_b5spy")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+text = "Health: 100"
+
+[node name="ExposureStat" type="HBoxContainer" parent="HUD/StatsContainer/StatsPanel/StatsMargin/StatsVbox" unique_id=908820407]
+layout_mode = 2
+
+[node name="ExposureIcon" type="TextureRect" parent="HUD/StatsContainer/StatsPanel/StatsMargin/StatsVbox/ExposureStat" unique_id=497446027]
+layout_mode = 2
+texture = ExtResource("21_103ce")
+
+[node name="ExposureLabel" type="Label" parent="HUD/StatsContainer/StatsPanel/StatsMargin/StatsVbox/ExposureStat" unique_id=1502429401]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 1
@@ -106,7 +335,14 @@ theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 1
 text = "Exposure: 100"
 
-[node name="HungerLabel" type="Label" parent="HUD/Margins/Vbox" unique_id=1187276877]
+[node name="HungerStat" type="HBoxContainer" parent="HUD/StatsContainer/StatsPanel/StatsMargin/StatsVbox" unique_id=307148204]
+layout_mode = 2
+
+[node name="HungerIcon" type="TextureRect" parent="HUD/StatsContainer/StatsPanel/StatsMargin/StatsVbox/HungerStat" unique_id=1355978589]
+layout_mode = 2
+texture = ExtResource("8_mwyo0")
+
+[node name="HungerLabel" type="Label" parent="HUD/StatsContainer/StatsPanel/StatsMargin/StatsVbox/HungerStat" unique_id=1187276877]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 1
@@ -117,3 +353,161 @@ theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 1
 text = "Hunger: 100"
+
+[node name="InventoryContainer" type="MarginContainer" parent="HUD" unique_id=1900213099]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -242.0
+offset_right = 130.0
+offset_bottom = -80.0
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="InventoryPanel" type="PanelContainer" parent="HUD/InventoryContainer" unique_id=478810171]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="InventoryMargin" type="MarginContainer" parent="HUD/InventoryContainer/InventoryPanel" unique_id=1776963599]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="InventoryVbox" type="VBoxContainer" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin" unique_id=1171174841]
+layout_mode = 2
+
+[node name="FoodCount" type="HBoxContainer" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox" unique_id=1848727846]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="FoodIcon" type="TextureRect" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/FoodCount" unique_id=1137493979]
+layout_mode = 2
+texture = ExtResource("8_mwyo0")
+stretch_mode = 2
+
+[node name="FoodLabel" type="Label" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/FoodCount" unique_id=2047235326]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme = SubResource("Theme_b5spy")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+text = "Food: 0"
+
+[node name="EatFoodButton" type="Button" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/FoodCount" unique_id=966840517]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_ldkr4")
+theme_override_font_sizes/font_size = 8
+text = "Eat"
+
+[node name="WoodCount" type="HBoxContainer" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox" unique_id=585753546]
+layout_mode = 2
+
+[node name="WoodIcon" type="TextureRect" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/WoodCount" unique_id=447874913]
+layout_mode = 2
+texture = ExtResource("4_5ay1a")
+
+[node name="WoodLabel" type="Label" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/WoodCount" unique_id=1391441840]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme = SubResource("Theme_b5spy")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+text = "Wood: 0"
+
+[node name="MakeCampfireButton" type="Button" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/WoodCount" unique_id=45378160]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_ldkr4")
+theme_override_font_sizes/font_size = 8
+text = "Make Camp"
+
+[node name="FibreCount" type="HBoxContainer" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox" unique_id=2043607585]
+layout_mode = 2
+
+[node name="FibreIcon" type="TextureRect" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/FibreCount" unique_id=370533172]
+layout_mode = 2
+texture = ExtResource("22_103ce")
+
+[node name="FibreLabel" type="Label" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/FibreCount" unique_id=1927028104]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme = SubResource("Theme_b5spy")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+text = "Fibre: 0"
+
+[node name="RopeCount" type="HBoxContainer" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox" unique_id=1908428846]
+layout_mode = 2
+
+[node name="RopeIcon" type="TextureRect" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/RopeCount" unique_id=1293313985]
+layout_mode = 2
+texture = ExtResource("10_pb36m")
+
+[node name="RopeLabel" type="Label" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/RopeCount" unique_id=1952473844]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme = SubResource("Theme_b5spy")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+text = "Rope: 0"
+
+[node name="MedCount" type="HBoxContainer" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox" unique_id=1159808903]
+layout_mode = 2
+
+[node name="MedsIcon" type="TextureRect" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/MedCount" unique_id=2016122672]
+layout_mode = 2
+texture = ExtResource("9_s76x2")
+
+[node name="MedsLabel" type="Label" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/MedCount" unique_id=1025777258]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme = SubResource("Theme_b5spy")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+text = "Meds: 0"
+
+[node name="CoatsCount" type="HBoxContainer" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox" unique_id=195546986]
+layout_mode = 2
+
+[node name="CoatIcon" type="TextureRect" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/CoatsCount" unique_id=1400450882]
+layout_mode = 2
+texture = ExtResource("12_85lt4")
+
+[node name="CoatsLabel" type="Label" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/CoatsCount" unique_id=1109313987]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme = SubResource("Theme_b5spy")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+text = "Coats: 0"

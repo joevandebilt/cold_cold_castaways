@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://v88w14mrcyud"]
+
+[ext_resource type="Script" uid="uid://xxsbpmh47j0d" path="res://scripts/gameovercontroller.gd" id="1_xeevv"]
+
+[sub_resource type="Theme" id="Theme_0nqlu"]
+
+[node name="GameOver" type="Control" unique_id=1053405990]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xeevv")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=210197166]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=791637039]
+layout_mode = 2
+theme = SubResource("Theme_0nqlu")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=571021211]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="GameOverScreen" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2103851493]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
+text = "GAME OVER
+You Died :("
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=909491845]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit"

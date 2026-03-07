@@ -235,5 +235,5 @@ animations = [{
 }],
 "loop": false,
 "name": &"timber",
-"speed": 12.0
+"speed": 20.0
 }]

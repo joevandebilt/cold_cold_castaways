@@ -1,14 +1,41 @@
+class_name FireController
+
 extends Area2D
 
 var fire_sprite : AnimatedSprite2D
+var fire_menu : PanelContainer
+
 var player : PlayerController
 
+var add1button : TextureButton
+var add10button : TextureButton
+var add100button : TextureButton
+
+var grab_torch_button : Button
+
+var fuelLabel : Label
+
 var fuel_available : float = 200
+var decay_rate : float = 0.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player = get_node("/root/Game Scene/Player")
+	player = get_node("/root/Game Scene/Camp/Player")
 	fire_sprite = get_node("FireSprite")
+	fire_menu = get_node("FireMenu")
+	
+	add1button = get_node("FireMenu/Margins/VBoxContainer/AddFuelButtons/Add1FuelButton")
+	add10button = get_node("FireMenu/Margins/VBoxContainer/AddFuelButtons/Add10FuelButton")
+	add100button = get_node("FireMenu/Margins/VBoxContainer/AddFuelButtons/Add100FuelButton")
+	
+	add1button.pressed.connect(add_fuel.bind(1))
+	add10button.pressed.connect(add_fuel.bind(10))
+	add100button.pressed.connect(add_fuel.bind(100))
+	
+	grab_torch_button = get_node("FireMenu/Margins/VBoxContainer/HBoxContainer/TakeTorchButton")
+	grab_torch_button.pressed.connect(player.grab_torch)
+	
+	fuelLabel = get_node("FireMenu/Margins/VBoxContainer/FuelAvailableLabel")
 	
 	area_entered.connect(_on_enter)
 	area_exited.connect(_on_exit)
@@ -21,22 +48,42 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	fuel_available += -0.5 * delta
+	
+	fuel_available -= decay_rate * delta
 	fuel_available = clamp(fuel_available, 0, 9999999)
 	
+	fuelLabel.text = "Wood Available: {0}".format([roundi(fuel_available)])
+	
 	if fuel_available == 0:
-		player.setexposure(-1)
+		fire_sprite.animation = "fire_out"
+		emit_signal("LeftFireArea")
 
 func _on_enter(body: Node2D):
-	if body is PlayerController:
+	if body is PlayerController and fuel_available > 0:
 		print("Setting exposure to positive")
-		player.setexposure(1.5)
-	
+		player.near_fire = true
+		_show_menu()
+		
 func _on_exit(body: Node2D):
 	if body is PlayerController:
 		print("Setting exposure to negative")
-		player.setexposure(-1)		
+		player.near_fire = false
+		_hide_menu()
+
+func _show_menu():
+		fire_menu.show()
+		var tween = create_tween()
+		tween.tween_property(fire_menu, "scale", Vector2(1,1), 0.2)
 		
-func addfuel(amount: int):
-	fuel_available += amount
-	player.setexposure(1.5)
+func _hide_menu():
+		var tween = create_tween()
+		tween.tween_property(fire_menu, "scale", Vector2(0.2,0.2), 0.2)
+		await tween.finished
+		fire_menu.hide()
+
+func add_fuel(amount: int):
+	var amt = player.inventory.spend_resource(player.inventory.Resources.WOOD, amount)
+	fuel_available += amt
+	if fire_sprite.animation != "default":
+		fire_sprite.animation = "default"
+	emit_signal("EnterFireArea")

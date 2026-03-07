@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://47t3xfgeb7sj"]
+
+[ext_resource type="Script" uid="uid://cqm23oyornu7s" path="res://scripts/ferncontroller.gd" id="1_mhglv"]
+[ext_resource type="SpriteFrames" uid="uid://c4hw530kahd27" path="res://artwork/sprites/fern_sprite.tres" id="2_qidt7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcjrq"]
+size = Vector2(24, 20)
+
+[node name="Fern" type="Area2D" unique_id=874775548]
+z_index = 1
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_mhglv")
+
+[node name="FernSprite" type="AnimatedSprite2D" parent="." unique_id=903928290]
+sprite_frames = ExtResource("2_qidt7")
+
+[node name="FernCollision" type="CollisionShape2D" parent="." unique_id=681891306]
+shape = SubResource("RectangleShape2D_tcjrq")

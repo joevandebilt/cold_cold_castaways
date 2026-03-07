@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://uenspw2fvri8"]
+
+[ext_resource type="Script" uid="uid://bqwcb2o7di3x8" path="res://scripts/treecontroller.gd" id="1_1d644"]
+[ext_resource type="SpriteFrames" uid="uid://byg6hatm3fv0j" path="res://artwork/sprites/tree_sprite.tres" id="2_4i1w2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kk2rg"]
+size = Vector2(31, 38)
+
+[node name="Tree" type="Area2D" unique_id=2125284981]
+z_index = 1
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_1d644")
+
+[node name="TreeSprite" type="AnimatedSprite2D" parent="." unique_id=2029818640]
+position = Vector2(-141, -58)
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("2_4i1w2")
+
+[node name="TreeCollision" type="CollisionShape2D" parent="." unique_id=1146268741]
+position = Vector2(-143.5, -58)
+shape = SubResource("RectangleShape2D_kk2rg")
