@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 	pass
 	
 func _quit():
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

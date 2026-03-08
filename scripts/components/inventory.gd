@@ -5,7 +5,7 @@ enum Resources { WOOD, FOOD, FIBRE, MEDECINE, ROPE, COATS}
 var items = {
 	Resources.WOOD: 100,
 	Resources.FOOD: 0, 
-	Resources.FIBRE: 1000, 
+	Resources.FIBRE: 0, 
 	Resources.MEDECINE: 0, 
 	Resources.ROPE: 0, 
 	Resources.COATS: 0

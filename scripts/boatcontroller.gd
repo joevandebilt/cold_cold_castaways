@@ -95,6 +95,13 @@ func _process(delta: float) -> void:
 	medecine_needed_label.text = "Medecine Needed: {0}".format([medecine_needed])
 	coats_needed_label.text = "Coats Needed: {0}".format([coats_needed])
 	
+	if wood_needed <= 0 and \
+	food_needed <=0 and \
+	rope_needed <= 0 and \
+	medecine_needed <= 0 and \
+	coats_needed <=0:
+		get_tree().change_scene_to_file("res://scenes/game_won.tscn")
+	
 func _on_enter(body: Node2D):
 	if body is PlayerController:
 		_show_menu()
@@ -117,19 +124,24 @@ func _hide_menu():
 func add_wood(amount: int):
 	var amt = player.inventory.spend_resource(player.inventory.Resources.WOOD, amount)
 	wood_needed -= amt
+	wood_needed = clamp(wood_needed, 0, 99999)
 
 func add_food(amount: int):
 	var amt = player.inventory.spend_resource(player.inventory.Resources.FOOD, amount)
 	food_needed -= amt
+	food_needed = clamp(food_needed, 0, 99999)
 	
 func add_rope(amount: int):
 	var amt = player.inventory.spend_resource(player.inventory.Resources.ROPE, amount)
 	rope_needed -= amt
+	rope_needed = clamp(rope_needed, 0, 99999)
 	
 func add_meds(amount: int):
 	var amt = player.inventory.spend_resource(player.inventory.Resources.MEDECINE, amount)
 	medecine_needed -= amt
+	medecine_needed = clamp(medecine_needed, 0, 99999)
 	
 func add_coats(amount: int):
 	var amt = player.inventory.spend_resource(player.inventory.Resources.COATS, amount)
 	coats_needed -= amt
+	coats_needed = clamp(coats_needed, 0, 99999)

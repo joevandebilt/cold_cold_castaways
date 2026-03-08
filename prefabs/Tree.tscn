@@ -12,10 +12,8 @@ scale = Vector2(1.5, 1.5)
 script = ExtResource("1_1d644")
 
 [node name="TreeSprite" type="AnimatedSprite2D" parent="." unique_id=2029818640]
-position = Vector2(-141, -58)
 scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("2_4i1w2")
 
 [node name="TreeCollision" type="CollisionShape2D" parent="." unique_id=1146268741]
-position = Vector2(-143.5, -58)
 shape = SubResource("RectangleShape2D_kk2rg")

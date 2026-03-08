@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="moray_gamejam"
-run/main_scene="uid://blxvvj5ugf7ml"
+config/name="Cold Cold Castaway"
+run/main_scene="uid://cnf235e0ftfem"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

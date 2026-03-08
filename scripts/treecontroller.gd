@@ -1,3 +1,5 @@
+class_name TreeController
+
 extends Area2D
 
 var tree_sprite : AnimatedSprite2D

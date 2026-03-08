@@ -4,7 +4,7 @@ extends Area2D
 
 #NPC Properties
 var awake : bool = false
-var on_mission : bool = false
+var on_gather : bool = false
 var on_crafting : bool = false
 var return_to_base : bool = false
 var has_reward : bool = false
@@ -12,6 +12,7 @@ var can_craft : bool = false
 var craft_time: int = 5
 var reward_type : REWARD_TYPE
 var speed : float = 100
+var gather_time : int = 5
 
 #NPC Goals
 var start_position : Vector2
@@ -55,13 +56,15 @@ func _base_ready() -> void:
 	npc_menu = get_node("NpcMenu")
 	
 	npc_dialogue = npc_menu.get_node("Margins/VContainer/Dialogue")
-	gather_group = npc_menu.get_node("Margins/VContainer/GatherGroup")
-	gather_button = gather_group.get_node("GatherButton")
-	gather_button.pressed.connect(_start_gather)
+	if npc_menu.has_node("Margins/VContainer/GatherGroup"):
+		gather_group = npc_menu.get_node("Margins/VContainer/GatherGroup")
+		gather_button = gather_group.get_node("GatherButton")
+		gather_button.pressed.connect(_start_gather)
 	
-	craft_group = npc_menu.get_node("Margins/VContainer/CraftGroup")
-	craft_button = craft_group.get_node("CraftButton")
-	craft_button.pressed.connect(_start_craft)
+	if npc_menu.has_node("Margins/VContainer/CraftGroup"):
+		craft_group = npc_menu.get_node("Margins/VContainer/CraftGroup")
+		craft_button = craft_group.get_node("CraftButton")
+		craft_button.pressed.connect(_start_craft)
 	
 	collect_button = npc_menu.get_node("Margins/VContainer/CollectButton")
 	collect_button.pressed.connect(_collect_reward)
@@ -84,7 +87,7 @@ func _base_process(delta: float) -> void:
 			return_to_base = false
 		else:
 			direction = global_position.direction_to(start_position)
-	elif on_mission:
+	elif on_gather:
 		if next_target == Vector2.ZERO or global_position.distance_to(next_target) < 2:
 			next_target = map.get_random_ground_tile()
 		direction = global_position.direction_to(next_target)
@@ -102,7 +105,7 @@ func _base_process(delta: float) -> void:
 	else:
 		collect_button.hide()
 	
-	if on_crafting or has_reward or on_mission or return_to_base:
+	if on_crafting or has_reward or on_gather or return_to_base:
 		_display_menus(false)
 	else:
 		_display_menus(true)
@@ -123,7 +126,7 @@ func _base_process(delta: float) -> void:
 	position += direction.normalized() * speed * delta
 		
 func _on_enter(body: Node2D):
-	if body is PlayerController and !on_mission and !return_to_base:
+	if body is PlayerController and !on_gather:
 		print("Talk to Me")
 		_show_menu()
 		
@@ -144,31 +147,33 @@ func _hide_menu():
 		npc_menu.hide()
 	
 func _start_gather():
-	on_mission = true
+	on_gather = true
 	start_position = global_position
-	timer.start(30)
-	if timer.timeout.is_connected(_mission_complete):
-		timer.timeout.disconnect(_mission_complete)
-	timer.timeout.connect(_mission_complete)
+	timer.start(gather_time)
+	timer.timeout.connect(_gather_complete)
 
-func _mission_complete():
-	on_mission = false
+func _gather_complete():	
+	on_gather = false
 	return_to_base = true
 	next_target = Vector2.ZERO
+	has_reward = true
+	reward_type = REWARD_TYPE.GATHER
+	timer.timeout.disconnect(_gather_complete)
+	timer.stop()
 
 func _start_craft():
 	if can_craft:
 		emit_signal("start_craft")
-		timer.start(craft_time)
-		if timer.timeout.is_connected(_craft_complete):
-			timer.timeout.disconnect(_craft_complete)
+		timer.start(craft_time)			
 		timer.timeout.connect(_craft_complete)
 		on_crafting = true
 	
 func _craft_complete():
-	has_reward = true
 	on_crafting = false
+	has_reward = true
 	reward_type = REWARD_TYPE.CRAFT
+	timer.timeout.disconnect(_craft_complete)
+	timer.stop()
 		
 func _collect_reward():
 	if reward_type == REWARD_TYPE.GATHER:

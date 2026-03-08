@@ -1,3 +1,5 @@
+class_name FernController
+
 extends Area2D
 
 var fern_sprite : AnimatedSprite2D
