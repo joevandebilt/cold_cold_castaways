@@ -122,26 +122,36 @@ func _hide_menu():
 		boat_menu.hide()
 		
 func add_wood(amount: int):
+	if wood_needed < amount:
+		amount = wood_needed
 	var amt = player.inventory.spend_resource(player.inventory.Resources.WOOD, amount)
 	wood_needed -= amt
 	wood_needed = clamp(wood_needed, 0, 99999)
 
 func add_food(amount: int):
+	if food_needed < amount:
+		amount = food_needed
 	var amt = player.inventory.spend_resource(player.inventory.Resources.FOOD, amount)
 	food_needed -= amt
 	food_needed = clamp(food_needed, 0, 99999)
 	
 func add_rope(amount: int):
+	if rope_needed < amount:
+		amount = rope_needed
 	var amt = player.inventory.spend_resource(player.inventory.Resources.ROPE, amount)
 	rope_needed -= amt
 	rope_needed = clamp(rope_needed, 0, 99999)
 	
 func add_meds(amount: int):
+	if medecine_needed < amount:
+		amount = medecine_needed
 	var amt = player.inventory.spend_resource(player.inventory.Resources.MEDECINE, amount)
 	medecine_needed -= amt
 	medecine_needed = clamp(medecine_needed, 0, 99999)
 	
 func add_coats(amount: int):
+	if coats_needed < amount:
+		amount = coats_needed
 	var amt = player.inventory.spend_resource(player.inventory.Resources.COATS, amount)
 	coats_needed -= amt
 	coats_needed = clamp(coats_needed, 0, 99999)

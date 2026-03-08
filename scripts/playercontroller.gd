@@ -9,7 +9,7 @@ var player_sprite : AnimatedSprite2D
 var interaction_radius : Area2D
 
 #Player Properties
-var health : float = 50
+var health : float = 100
 var exposure : float = 100
 var hunger: float = 100
 

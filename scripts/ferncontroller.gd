@@ -84,4 +84,7 @@ func respawn():
 	fern_knocked = false
 	fern_harvested = false
 	
+	timer.stop()
+	timer.timeout.disconnect(respawn)
+	
 	

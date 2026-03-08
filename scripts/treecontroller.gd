@@ -67,3 +67,6 @@ func respawn():
 	tree_hits = 3
 	tree_knocked = false
 	
+	timer.stop()
+	timer.timeout.disconnect(respawn)
+	

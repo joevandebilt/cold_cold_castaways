@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cnf235e0ftfem"]
 
 [ext_resource type="Script" uid="uid://c0agpf8s0s4vw" path="res://scripts/mainmenucontroller.gd" id="1_l6cm7"]
+[ext_resource type="FontFile" uid="uid://bh8kladnacpwl" path="res://artwork/fonts/Tiny5-Regular.ttf" id="2_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://3uaw6jc0wp0w" path="res://artwork/main_menu_logo.png" id="3_wu84c"]
 
 [sub_resource type="Theme" id="Theme_0nqlu"]
 
@@ -13,26 +15,34 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l6cm7")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=210197166]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=743048139]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_wu84c")
+expand_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=791637039]
-layout_mode = 2
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=791637039]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_0nqlu")
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=571021211]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=571021211]
 layout_mode = 2
 
-[node name="GameOverScreen" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2103851493]
+[node name="GameOverScreen" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=2103851493]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 36
 text = "Cold Cold Castaways"
@@ -40,26 +50,34 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MapSizeLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1762272106]
+[node name="MapSizeLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1762272106]
 visible = false
 layout_mode = 2
 text = "Map Size"
 horizontal_alignment = 1
 
-[node name="MapSizeOptions" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=475841568]
+[node name="MapSizeOptions" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=475841568]
 visible = false
 layout_mode = 2
 
-[node name="CheckButton" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/MapSizeOptions" unique_id=1287509264]
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer/MapSizeOptions" unique_id=1287509264]
 visible = false
 layout_mode = 2
 
-[node name="StartGameButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=909491845]
+[node name="StartGameButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=909491845]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 58
 text = "Start Game"
 
-[node name="Copyright" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1786194269]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=210197166]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Copyright" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PanelContainer" unique_id=1786194269]
 layout_mode = 2
 size_flags_vertical = 10
 theme_override_font_sizes/normal_font_size = 16

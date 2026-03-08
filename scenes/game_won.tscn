@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://xxsbpmh47j0d" path="res://scripts/gameovercontroller.gd" id="1_oj2if"]
 [ext_resource type="Texture2D" uid="uid://i3nlwtvk4yrj" path="res://artwork/victory_screen.png" id="2_bb2ko"]
+[ext_resource type="FontFile" uid="uid://bh8kladnacpwl" path="res://artwork/fonts/Tiny5-Regular.ttf" id="3_xh1nx"]
 
 [sub_resource type="Theme" id="Theme_0nqlu"]
 
@@ -15,11 +16,12 @@ grow_vertical = 2
 script = ExtResource("1_oj2if")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=455883382]
-layout_mode = 0
-offset_left = -192.0
-offset_top = -153.5
-offset_right = 1344.0
-offset_bottom = 870.5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_bb2ko")
@@ -57,4 +59,6 @@ vertical_alignment = 1
 [node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=909491845]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Main Menu"
+theme_override_fonts/font = ExtResource("3_xh1nx")
+theme_override_font_sizes/font_size = 32
+text = "Back to Main Menu"

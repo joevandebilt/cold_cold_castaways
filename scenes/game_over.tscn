@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://v88w14mrcyud"]
 
 [ext_resource type="Script" uid="uid://xxsbpmh47j0d" path="res://scripts/gameovercontroller.gd" id="1_xeevv"]
+[ext_resource type="FontFile" uid="uid://bh8kladnacpwl" path="res://artwork/fonts/Tiny5-Regular.ttf" id="2_tbwuq"]
+[ext_resource type="Texture2D" uid="uid://dywo7gksnvdo0" path="res://artwork/gameover_screen.png" id="3_racf3"]
 
 [sub_resource type="Theme" id="Theme_0nqlu"]
 
@@ -14,6 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_xeevv")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=210197166]
+z_index = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,6 +37,7 @@ layout_mode = 2
 size_flags_vertical = 4
 
 [node name="GameOverScreen" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2103851493]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 36
 text = "GAME OVER
@@ -46,4 +50,16 @@ vertical_alignment = 1
 [node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=909491845]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Main Menu"
+theme_override_fonts/font = ExtResource("2_tbwuq")
+theme_override_font_sizes/font_size = 32
+text = "Back to Main Menu"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1854444871]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_racf3")
+expand_mode = 3
