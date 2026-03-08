@@ -72,9 +72,18 @@ theme_override_fonts/font = ExtResource("2_bqqt6")
 theme_override_font_sizes/font_size = 58
 text = "Start Game"
 
+[node name="QuitGameButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1650438021]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 32
+text = "Quit Game"
+
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=210197166]
 z_index = 1
 layout_mode = 2
+size_flags_horizontal = 5
 size_flags_vertical = 10
 
 [node name="Copyright" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PanelContainer" unique_id=1786194269]

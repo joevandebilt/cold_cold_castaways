@@ -1,12 +1,16 @@
 extends Control
 
 var start_button : Button
+var quit_button : Button
 var menu_container : MarginContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	start_button = get_node("MarginContainer/VBoxContainer/StartGameButton")
 	start_button.pressed.connect(start_game)
+	
+	quit_button = get_node("MarginContainer/VBoxContainer/QuitGameButton")
+	quit_button.pressed.connect(get_tree().quit)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func start_game():

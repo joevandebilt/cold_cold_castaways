@@ -16,6 +16,8 @@ var hunger: float = 100
 var near_fire = false
 var has_torch = false
 
+var debug_scale = 1.0
+
 #Inventory
 var inventory : Inventory
 
@@ -49,7 +51,7 @@ func _process(delta: float) -> void:
 	
 	var exposure_delta = -0.5 * weather.get_extremity()
 	var health_delta = 0
-	var hunger_delta = 0.3
+	var hunger_delta = 0.6
 	
 	if has_torch:
 		exposure_delta = 0
@@ -62,9 +64,9 @@ func _process(delta: float) -> void:
 	if medic.awake and interaction_radius.overlaps_area(medic):
 		health_delta = 1.5
 	
-	exposure += exposure_delta * delta
-	health += health_delta * delta
-	hunger -= hunger_delta * delta
+	exposure += exposure_delta * delta * debug_scale
+	health += health_delta * delta * debug_scale
+	hunger -= hunger_delta * delta * debug_scale
 	
 	exposure = clamp(exposure, 0, 100)
 	health = clamp(health, 0, 100)
@@ -74,7 +76,7 @@ func _process(delta: float) -> void:
 		print("Game Over!!")
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction = Vector2.ZERO
 	var animation = "default"
 	if Input.is_action_pressed("move_up"):
@@ -108,14 +110,14 @@ func _try_interact() -> void:
 	
 	for interaction in interactions:
 		if interaction.has_method("interact"):#e			
-			if interaction is FernController:
-				if hunter.awake:
-					interaction.interact()
-			elif interaction is TreeController:
-				if carpenter.awake:
-					interaction.interact()
-			else:
-				interaction.interact()
+			#if interaction is FernController:
+				#if hunter.awake:
+					#interaction.interact()
+			#elif interaction is TreeController:
+				#if carpenter.awake:
+					#interaction.interact()
+			#else:
+			interaction.interact()
 	
 func get_exposure() -> float:
 	return exposure

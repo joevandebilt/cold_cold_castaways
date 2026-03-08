@@ -597,6 +597,7 @@ shape = SubResource("CircleShape2D_pb36m")
 sprite_frames = SubResource("SpriteFrames_xgstd")
 
 [node name="NpcMenu" type="PanelContainer" parent="Camp/Hunter" unique_id=381813369]
+visible = false
 z_index = 3
 offset_left = 20.0
 offset_top = -10.0
@@ -672,13 +673,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("15_ldkr4")
 theme_override_font_sizes/font_size = 7
 text = "Craft Coat"
-
-[node name="CraftingLabel" type="Label" parent="Camp/Hunter/NpcMenu/Margins/VContainer" unique_id=593989605]
-visible = false
-layout_mode = 2
-theme_override_fonts/font = ExtResource("15_ldkr4")
-theme_override_font_sizes/font_size = 7
-text = "Come back later for you stuff"
 
 [node name="CollectButton" type="Button" parent="Camp/Hunter/NpcMenu/Margins/VContainer" unique_id=1299116399]
 layout_mode = 2
@@ -784,13 +778,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("15_ldkr4")
 theme_override_font_sizes/font_size = 7
 text = "Craft Rope"
-
-[node name="CraftingLabel" type="Label" parent="Camp/Carpenter/NpcMenu/Margins/VContainer" unique_id=1461066354]
-visible = false
-layout_mode = 2
-theme_override_fonts/font = ExtResource("15_ldkr4")
-theme_override_font_sizes/font_size = 7
-text = "Come back later for you stuff"
 
 [node name="CollectButton" type="Button" parent="Camp/Carpenter/NpcMenu/Margins/VContainer" unique_id=1853093803]
 visible = false
@@ -916,13 +903,6 @@ size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("15_ldkr4")
 theme_override_font_sizes/font_size = 7
 text = "Craft Meds"
-
-[node name="CraftingLabel" type="Label" parent="Camp/Medic/NpcMenu/Margins/VContainer" unique_id=1685881988]
-visible = false
-layout_mode = 2
-theme_override_fonts/font = ExtResource("15_ldkr4")
-theme_override_font_sizes/font_size = 7
-text = "Come back later for you stuff"
 
 [node name="CollectButton" type="Button" parent="Camp/Medic/NpcMenu/Margins/VContainer" unique_id=1053036200]
 visible = false
@@ -1056,6 +1036,7 @@ layout_mode = 2
 
 [node name="FoodCount" type="HBoxContainer" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox" unique_id=1848727846]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="FoodIcon" type="TextureRect" parent="HUD/InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/FoodCount" unique_id=1137493979]

@@ -31,6 +31,8 @@ var gather_button : Button
 var craft_group : HBoxContainer
 var craft_button: Button
 
+var craft_label : Label
+
 var collect_button: Button
 
 #Sibling Nodes
@@ -65,6 +67,8 @@ func _base_ready() -> void:
 		craft_group = npc_menu.get_node("Margins/VContainer/CraftGroup")
 		craft_button = craft_group.get_node("CraftButton")
 		craft_button.pressed.connect(_start_craft)
+		
+	craft_label = npc_menu.get_node("Margins/VContainer/CraftingLabel")
 	
 	collect_button = npc_menu.get_node("Margins/VContainer/CollectButton")
 	collect_button.pressed.connect(_collect_reward)
@@ -131,7 +135,7 @@ func _on_enter(body: Node2D):
 		_show_menu()
 		
 func _on_exit(body: Node2D):
-	if body is PlayerController:
+	if body.name == "PlayerInteractions":
 		print("Bye bye")
 		_hide_menu()
 
@@ -167,6 +171,7 @@ func _start_craft():
 		timer.start(craft_time)			
 		timer.timeout.connect(_craft_complete)
 		on_crafting = true
+		craft_label.show()
 	
 func _craft_complete():
 	on_crafting = false
@@ -174,6 +179,7 @@ func _craft_complete():
 	reward_type = REWARD_TYPE.CRAFT
 	timer.timeout.disconnect(_craft_complete)
 	timer.stop()
+	craft_label.hide()
 		
 func _collect_reward():
 	if reward_type == REWARD_TYPE.GATHER:
@@ -182,20 +188,20 @@ func _collect_reward():
 		emit_signal("collect_craft")
 	has_reward = false
 
-func _display_menus(show:bool):
-	_display_gather_options(show)
-	_display_craft_options(show)
+func _display_menus(display :bool):
+	_display_gather_options(display)
+	_display_craft_options(display)
 
-func _display_gather_options(show: bool):
+func _display_gather_options(display: bool):
 	if gather_group:
-		if show:
+		if display:
 			gather_group.show()
 		else:
 			gather_group.hide()
 	
-func _display_craft_options(show: bool):
+func _display_craft_options(display: bool):
 	if craft_group:
-		if show:
+		if display:
 			craft_group.show()
 		else:
 			craft_group.hide()

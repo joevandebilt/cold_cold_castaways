@@ -7,7 +7,7 @@ var give_coat_button : Button
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void: 
 			
-	craft_time = 180
+	craft_time = 60
 		
 	collect_craft.connect(craft_meds_reward)
 	start_craft.connect(pay_crafting)

@@ -28,13 +28,8 @@ texture = ExtResource("2_bb2ko")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=210197166]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -50.0
-offset_bottom = -50.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 304.0
+offset_bottom = 138.0
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=791637039]
 layout_mode = 2
@@ -50,6 +45,7 @@ size_flags_vertical = 4
 
 [node name="GameOverScreen" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2103851493]
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_xh1nx")
 theme_override_font_sizes/normal_font_size = 36
 text = "You Survived!"
 fit_content = true

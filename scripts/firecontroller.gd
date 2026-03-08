@@ -56,16 +56,18 @@ func _process(delta: float) -> void:
 	
 	if fuel_available == 0:
 		fire_sprite.animation = "fire_out"
-		player.near_fire = false
+		if player.near_fire and overlaps_area(player):
+			player.near_fire = false
 
 func _on_enter(body: Node2D):
-	if body is PlayerController:
+	if body.name == "PlayerInteractions":
 		print("Setting exposure to positive")
-		player.near_fire = true
 		_show_menu()
+		if fuel_available > 0:
+			player.near_fire = true
 		
 func _on_exit(body: Node2D):
-	if body is PlayerController:
+	if body.name == "PlayerInteractions":
 		print("Setting exposure to negative")
 		player.near_fire = false
 		_hide_menu()

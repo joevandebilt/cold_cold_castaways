@@ -7,9 +7,5 @@ func _ready() -> void:
 	quit_button = get_node("PanelContainer/MarginContainer/VBoxContainer/QuitButton")
 	quit_button.pressed.connect(_quit)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
 func _quit():
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

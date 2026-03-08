@@ -44,7 +44,7 @@ func _ready() -> void:
 	coat_label = get_node("InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/CoatsCount/CoatsLabel")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	exposure_label.text = "Exposure: {0}%".format([roundi(player.get_exposure())])
 	health_label.text = "Health: {0}%".format([roundi(player.get_health())])	
 	hunger_label.text = "Hunger: {0}%".format([roundi(player.get_hunger())])

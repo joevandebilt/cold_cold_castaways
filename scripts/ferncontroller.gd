@@ -25,13 +25,9 @@ func _ready() -> void:
 	timer = Timer.new()
 	add_child(timer)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
 func _collide(body: Node2D):
 	#print("fern collide")
-	if body is PlayerController:
+	if body.name == "PlayerInteractions":
 		_knock()
 
 func _knock():

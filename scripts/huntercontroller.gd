@@ -8,7 +8,7 @@ var fire : FireController
 func _ready() -> void: 
 	fire = get_node("/root/Game Scene/Camp/Fire")	
 		
-	craft_time = 300
+	craft_time = 60
 	gather_time = 30
 		
 	collect_gather.connect(gather_food_reward)

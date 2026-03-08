@@ -30,8 +30,8 @@ var add_coats_1 : TextureButton
 var player : PlayerController
 
 #Boat Properties
-var wood_needed : int = 5000
-var food_needed : int = 2000
+var wood_needed : int = 1000
+var food_needed : int = 1000
 var rope_needed : int = 100
 var medecine_needed : int = 50
 var coats_needed: int = 5
@@ -88,7 +88,7 @@ func _ready() -> void:
 	body_exited.connect(_on_exit)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	wood_needed_label.text = "Wood Needed: {0}".format([wood_needed])
 	food_needed_label.text = "Food Needed: {0}".format([food_needed])
 	rope_needed_label.text = "Rope Needed: {0}".format([rope_needed])
@@ -103,11 +103,11 @@ func _process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://scenes/game_won.tscn")
 	
 func _on_enter(body: Node2D):
-	if body is PlayerController:
+	if body.name == "PlayerInteractions":
 		_show_menu()
 
 func _on_exit(body: Node2D):
-	if body is PlayerController:
+	if body.name == "PlayerInteractions":
 		_hide_menu()
 
 func _show_menu():
