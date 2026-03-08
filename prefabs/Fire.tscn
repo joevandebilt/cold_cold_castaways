@@ -24,8 +24,10 @@ atlas = ExtResource("5_g05rx")
 region = Rect2(11, 24, 11, 8)
 
 [node name="Fire" type="Area2D" unique_id=1547280524]
-z_index = 1
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_qhfmg")
+fuel_available = 0.0
 
 [node name="FireSprite" type="AnimatedSprite2D" parent="." unique_id=1906313644]
 z_index = 1
@@ -36,6 +38,7 @@ z_index = 1
 shape = SubResource("CircleShape2D_mw25s")
 
 [node name="FireMenu" type="PanelContainer" parent="." unique_id=1066645170]
+visible = false
 z_index = 3
 anchors_preset = 5
 anchor_left = 0.5

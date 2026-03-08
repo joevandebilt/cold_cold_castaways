@@ -140,27 +140,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_85lt4"]
-load_path = "res://.godot/imported/arrow_icons.png-1b0cf3b4b069d1f992378d91220e8b1f.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bpk3j"]
-atlas = SubResource("CompressedTexture2D_85lt4")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ngbhp"]
-load_path = "res://.godot/imported/number_icons.png-83b2a6c4dfc7e95d88ebc8fe2e1fa2d4.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yhpmq"]
-atlas = SubResource("CompressedTexture2D_ngbhp")
-region = Rect2(11, 24, 11, 8)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xgstd"]
-load_path = "res://.godot/imported/arrow_icons.png-1b0cf3b4b069d1f992378d91220e8b1f.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ngbhp"]
-atlas = SubResource("CompressedTexture2D_xgstd")
-region = Rect2(0, 16, 16, 16)
-
 [sub_resource type="Theme" id="Theme_b5spy"]
 default_font = ExtResource("15_ldkr4")
 
@@ -373,97 +352,41 @@ collision_layer = 3
 collision_mask = 3
 script = ExtResource("13_85lt4")
 
-[node name="NpcCollision" type="CollisionShape2D" parent="Camp/Hunter" unique_id=1085828545]
+[node name="HunterCollision" type="CollisionShape2D" parent="Camp/Hunter" unique_id=1085828545]
 shape = SubResource("CircleShape2D_pb36m")
 
-[node name="NpcSprite" type="AnimatedSprite2D" parent="Camp/Hunter" unique_id=409951860]
+[node name="HunterSprite" type="AnimatedSprite2D" parent="Camp/Hunter" unique_id=409951860]
 sprite_frames = SubResource("SpriteFrames_r47aq")
 
-[node name="NpcMenu" type="PanelContainer" parent="Camp/Hunter" unique_id=381813369]
-visible = false
+[node name="HunterMenu" type="PanelContainer" parent="Camp/Hunter" unique_id=381813369]
 z_index = 3
 offset_left = 20.0
 offset_top = -10.0
 offset_right = 116.0
 offset_bottom = 9.0
 
-[node name="Margins" type="MarginContainer" parent="Camp/Hunter/NpcMenu" unique_id=901436753]
+[node name="Margins" type="MarginContainer" parent="Camp/Hunter/HunterMenu" unique_id=901436753]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VContainer" type="VBoxContainer" parent="Camp/Hunter/NpcMenu/Margins" unique_id=2144881227]
+[node name="VBoxContainer" type="VBoxContainer" parent="Camp/Hunter/HunterMenu/Margins" unique_id=2144881227]
 layout_mode = 2
 
-[node name="Dialogue" type="RichTextLabel" parent="Camp/Hunter/NpcMenu/Margins/VContainer" unique_id=133293]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("15_ldkr4")
-theme_override_font_sizes/normal_font_size = 7
-text = "I'm so cold..."
-fit_content = true
-
-[node name="GatherGroup" type="HBoxContainer" parent="Camp/Hunter/NpcMenu/Margins/VContainer" unique_id=973790862]
-layout_mode = 2
-
-[node name="GatherIcon" type="TextureRect" parent="Camp/Hunter/NpcMenu/Margins/VContainer/GatherGroup" unique_id=2091364950]
+[node name="HunterDialogue" type="Label" parent="Camp/Hunter/HunterMenu/Margins/VBoxContainer" unique_id=823367611]
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("4_5ay1a")
-
-[node name="GatherButton" type="Button" parent="Camp/Hunter/NpcMenu/Margins/VContainer/GatherGroup" unique_id=176460943]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("15_ldkr4")
-theme_override_font_sizes/font_size = 7
-text = "Gather Wood"
-
-[node name="CraftGroup" type="HBoxContainer" parent="Camp/Hunter/NpcMenu/Margins/VContainer" unique_id=416062662]
-layout_mode = 2
-
-[node name="RequireIcon" type="TextureRect" parent="Camp/Hunter/NpcMenu/Margins/VContainer/CraftGroup" unique_id=1070506023]
-layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("22_103ce")
-
-[node name="LineIcon" type="TextureRect" parent="Camp/Hunter/NpcMenu/Margins/VContainer/CraftGroup" unique_id=964406587]
-layout_mode = 2
-size_flags_horizontal = 4
-texture = SubResource("AtlasTexture_bpk3j")
-
-[node name="NumberIcon" type="TextureRect" parent="Camp/Hunter/NpcMenu/Margins/VContainer/CraftGroup" unique_id=1032826689]
-layout_mode = 2
-size_flags_horizontal = 4
-texture = SubResource("AtlasTexture_yhpmq")
-
-[node name="ArrowIcon" type="TextureRect" parent="Camp/Hunter/NpcMenu/Margins/VContainer/CraftGroup" unique_id=964789120]
-layout_mode = 2
-size_flags_horizontal = 4
-texture = SubResource("AtlasTexture_ngbhp")
-
-[node name="CraftIcon" type="TextureRect" parent="Camp/Hunter/NpcMenu/Margins/VContainer/CraftGroup" unique_id=1660951370]
-layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("12_85lt4")
-
-[node name="CraftButton" type="Button" parent="Camp/Hunter/NpcMenu/Margins/VContainer/CraftGroup" unique_id=1908013089]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("15_ldkr4")
-theme_override_font_sizes/font_size = 7
-text = "Craft Coat"
-
-[node name="CollectButton" type="Button" parent="Camp/Hunter/NpcMenu/Margins/VContainer" unique_id=1299116399]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("15_ldkr4")
-theme_override_font_sizes/font_size = 7
-text = "Collect Rewards"
+theme_override_font_sizes/font_size = 4
+text = "I need to get warm..."
+label_settings = ExtResource("4_liy57")
 
 [node name="Carpenter" type="Area2D" parent="Camp" unique_id=22004273]
 
 [node name="Medic" type="Area2D" parent="Camp" unique_id=1483256709]
 
 [node name="Fire" parent="Camp" unique_id=1547280524 instance=ExtResource("2_103ce")]
-z_index = 0
 position = Vector2(-180, -56)
 
 [node name="TileMap" type="TileMapLayer" parent="." unique_id=1683765491]

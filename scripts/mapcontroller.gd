@@ -15,6 +15,9 @@ const GROUND_TERRAIN = 1  # Ground terrain index within the set
 var noise := FastNoiseLite.new()
 var camp : Node2D
 
+var sea_cells: Array[Vector2i] = []
+var ground_cells: Array[Vector2i] = []
+
 var fire_template = preload("res://prefabs/Fire.tscn")
 var tree_template = preload("res://prefabs/Tree.tscn")
 var fern_template = preload("res://prefabs/Fern.tscn")
@@ -33,9 +36,6 @@ func _ready():
 func generate_island():
 	var center = Vector2(MAP_SIZE / 2.0, MAP_SIZE / 2.0)
 	var max_radius = (MAP_SIZE / 2.0) * ISLAND_RADIUS_FACTOR
-
-	var sea_cells: Array[Vector2i] = []
-	var ground_cells: Array[Vector2i] = []
 
 	for x in range(MAP_SIZE):
 		for y in range(MAP_SIZE):
@@ -95,6 +95,9 @@ func get_random_subset(cells: Array[Vector2i], percent: float) -> Array[Vector2i
 	shuffled.shuffle()
 	var count = int(shuffled.size() * percent)
 	return shuffled.slice(0, count)
+
+func get_random_ground_tile() -> Vector2:
+	return to_global(map_to_local(ground_cells[randi() % ground_cells.size()]))
 
 func add_tree(location: Vector2) -> void:
 	var tree = tree_template.instantiate()

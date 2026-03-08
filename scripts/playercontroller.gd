@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 	
 	exposure += exposure_delta * delta
 	health += health_delta * delta
-	hunger += hunger_delta * delta
+	hunger -= hunger_delta * delta
 	
 	exposure = clamp(exposure, 0, 100)
 	health = clamp(health, 0, 100)
@@ -89,7 +89,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		player_sprite.animation = animation
 	
-	velocity = direction.normalized() * Speed	
+	if hunger == 0:
+		velocity = direction.normalized() * (Speed / 2)
+	else:
+		velocity = direction.normalized() * Speed
 	move_and_slide()
 
 func _try_interact() -> void:

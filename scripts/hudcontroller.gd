@@ -13,6 +13,9 @@ var hunger_label : Label
 var food_label : Label
 var wood_label : Label
 var fibre_label : Label
+var rope_label: Label
+var med_label: Label
+var coat_label: Label
 
 #Sibling nodes
 var player : PlayerController
@@ -36,7 +39,9 @@ func _ready() -> void:
 	food_label = get_node("InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/FoodCount/FoodLabel")
 	wood_label = get_node("InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/WoodCount/WoodLabel")
 	fibre_label = get_node("InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/FibreCount/FibreLabel")
-
+	rope_label = get_node("InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/RopeCount/RopeLabel")
+	med_label = get_node("InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/MedCount/MedsLabel")
+	coat_label = get_node("InventoryContainer/InventoryPanel/InventoryMargin/InventoryVbox/CoatsCount/CoatsLabel")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -48,6 +53,9 @@ func _process(delta: float) -> void:
 	food_label.text = "Food: {0}".format([player.inventory.get_resource(resources.FOOD)])
 	wood_label.text = "Wood: {0}".format([player.inventory.get_resource(resources.WOOD)])
 	fibre_label.text = "Fibre: {0}".format([player.inventory.get_resource(resources.FIBRE)])
+	rope_label.text = "Rope: {0}".format([player.inventory.get_resource(resources.ROPE)])
+	med_label.text = "Meds: {0}".format([player.inventory.get_resource(resources.MEDECINE)])
+	coat_label.text = "Coats: {0}".format([player.inventory.get_resource(resources.COATS)])
 	
 func _make_campfire():
 	if player.inventory.get_resource(player.inventory.Resources.WOOD) >= 100:

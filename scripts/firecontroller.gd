@@ -15,7 +15,7 @@ var grab_torch_button : Button
 
 var fuelLabel : Label
 
-var fuel_available : float = 200
+@export var fuel_available : float = 200
 var decay_rate : float = 0.5
 
 # Called when the node enters the scene tree for the first time.
@@ -33,7 +33,7 @@ func _ready() -> void:
 	add100button.pressed.connect(add_fuel.bind(100))
 	
 	grab_torch_button = get_node("FireMenu/Margins/VBoxContainer/HBoxContainer/TakeTorchButton")
-	grab_torch_button.pressed.connect(player.grab_torch)
+	grab_torch_button.pressed.connect(grab_torch)
 	
 	fuelLabel = get_node("FireMenu/Margins/VBoxContainer/FuelAvailableLabel")
 	
@@ -56,10 +56,10 @@ func _process(delta: float) -> void:
 	
 	if fuel_available == 0:
 		fire_sprite.animation = "fire_out"
-		emit_signal("LeftFireArea")
+		player.near_fire = false
 
 func _on_enter(body: Node2D):
-	if body is PlayerController and fuel_available > 0:
+	if body is PlayerController:
 		print("Setting exposure to positive")
 		player.near_fire = true
 		_show_menu()
@@ -86,4 +86,9 @@ func add_fuel(amount: int):
 	fuel_available += amt
 	if fire_sprite.animation != "default":
 		fire_sprite.animation = "default"
-	emit_signal("EnterFireArea")
+	player.near_fire = true
+
+func grab_torch():
+	if fuel_available > 20 and !player.has_torch:
+		fuel_available -= 20
+		player.grab_torch()
