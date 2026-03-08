@@ -114,6 +114,7 @@ func _base_process(delta: float) -> void:
 	else:
 		_display_menus(true)
 	
+	craft_label.text = "Come back later for you stuff ({0}s)".format([roundi(timer.time_left)])
 	var animation = "idle"
 	if direction.y < 0:
 		animation = "walk_away"

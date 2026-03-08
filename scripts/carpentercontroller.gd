@@ -29,7 +29,7 @@ func gather_wood_reward():
 	
 func craft_rope_reward():
 	print("Finished Crafting Rope")
-	player.inventory.add_resource(player.inventory.Resources.ROPE, 5)
+	player.inventory.add_resource(player.inventory.Resources.ROPE, 15)
 	
 func has_craft_requirement() -> bool:	
 	return player.inventory.get_resource(player.inventory.Resources.FIBRE) >= 30

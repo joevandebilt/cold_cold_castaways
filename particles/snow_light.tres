@@ -1,8 +1,8 @@
 [gd_resource type="ParticleProcessMaterial" format=3 uid="uid://cuacjsffa505u"]
 
 [sub_resource type="Curve" id="Curve_rw4oa"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.75965667, 0.29213488), -1.3089888, -1.3089888, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_r47aq"]
 curve = SubResource("Curve_rw4oa")

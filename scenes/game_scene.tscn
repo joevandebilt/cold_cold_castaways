@@ -575,7 +575,7 @@ shape = SubResource("CircleShape2D_liy57")
 
 [node name="Weather" type="GPUParticles2D" parent="Camp/Player" unique_id=988730649]
 z_index = 10
-position = Vector2(0, -230)
+position = Vector2(0, -164)
 amount = 200
 lifetime = 10.0
 preprocess = 30.0

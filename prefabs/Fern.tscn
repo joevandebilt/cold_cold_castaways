@@ -13,7 +13,6 @@ script = ExtResource("1_mhglv")
 
 [node name="FernSprite" type="AnimatedSprite2D" parent="." unique_id=903928290]
 sprite_frames = ExtResource("2_qidt7")
-animation = &"harvested_wobble"
 
 [node name="FernCollision" type="CollisionShape2D" parent="." unique_id=681891306]
 shape = SubResource("RectangleShape2D_tcjrq")
