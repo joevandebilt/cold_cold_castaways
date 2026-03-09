@@ -39,7 +39,7 @@ func _ready() -> void:
 	hunter = get_node("/root/Game Scene/Camp/Hunter")
 	medic = get_node("/root/Game Scene/Camp/Medic")
 	carpenter = get_node("/root/Game Scene/Camp/Carpenter")
-	weather = get_node("Weather")
+	weather = get_node("WeatherSystem")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

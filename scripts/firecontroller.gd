@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 	
 	if fuel_available == 0:
 		fire_sprite.animation = "fire_out"
-		if player.near_fire and overlaps_area(player):
+		if player.near_fire and overlaps_body(player):
 			player.near_fire = false
 
 func _on_enter(body: Node2D):

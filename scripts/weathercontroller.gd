@@ -7,9 +7,10 @@ var intensity = 1
 
 
 # Called when the node enters the scene tree for awhe first time.
-func _ready() -> void:
+func _ready() -> void:		
+	
 	timer = Timer.new()
-	add_child(timer)
+	add_child(timer)	
 	
 	set_light()
 	

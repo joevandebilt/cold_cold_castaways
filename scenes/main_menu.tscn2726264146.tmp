@@ -15,8 +15,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l6cm7")
-map_size_buttons = ExtResource("2_wu84c")
-resource_buttons = ExtResource("3_8ln24")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=791637039]
 layout_mode = 1
@@ -48,14 +46,9 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="MapSizeLabel" type="Label" parent="MarginContainer/VBoxContainer/MapSize" unique_id=1762272106]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -556.0
-offset_right = 556.0
+layout_mode = 0
+offset_right = 1112.0
 offset_bottom = 23.0
-grow_horizontal = 2
 text = "Map Size"
 horizontal_alignment = 1
 
@@ -74,38 +67,31 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="MapSizeSmall" type="CheckBox" parent="MarginContainer/VBoxContainer/MapSize/MapSizeOptions" unique_id=96618676]
+[node name="MapSizeSmall" type="CheckButton" parent="MarginContainer/VBoxContainer/MapSize/MapSizeOptions" unique_id=1287509264]
 layout_mode = 2
 button_group = ExtResource("2_wu84c")
-text = "Small (64x64)"
-metadata/MapSize = 64
+text = "Small (64x64)
+"
 
-[node name="MapSizeMedium" type="CheckBox" parent="MarginContainer/VBoxContainer/MapSize/MapSizeOptions" unique_id=176181977]
+[node name="MapSizeMedium" type="CheckButton" parent="MarginContainer/VBoxContainer/MapSize/MapSizeOptions" unique_id=2140122688]
 layout_mode = 2
 button_pressed = true
 button_group = ExtResource("2_wu84c")
 text = "Medium (128x128)"
-metadata/MapSize = 128
 
-[node name="MapSizeBig" type="CheckBox" parent="MarginContainer/VBoxContainer/MapSize/MapSizeOptions" unique_id=1219273391]
+[node name="MapSizeBig" type="CheckButton" parent="MarginContainer/VBoxContainer/MapSize/MapSizeOptions" unique_id=191410363]
 layout_mode = 2
 button_group = ExtResource("2_wu84c")
 text = "Big (256x256)"
-metadata/MapSize = 256
 
 [node name="Resources" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1393454762]
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="ResourceOptionsLabel" type="Label" parent="MarginContainer/VBoxContainer/Resources" unique_id=1366073121]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -556.0
-offset_right = 556.0
+layout_mode = 0
+offset_right = 1112.0
 offset_bottom = 23.0
-grow_horizontal = 2
 text = "Resources"
 horizontal_alignment = 1
 
@@ -124,24 +110,21 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="ResourcesLots" type="CheckBox" parent="MarginContainer/VBoxContainer/Resources/ResourceOptions" unique_id=1609482132]
+[node name="AbundanceLots" type="CheckButton" parent="MarginContainer/VBoxContainer/Resources/ResourceOptions" unique_id=139514680]
 layout_mode = 2
 button_group = ExtResource("3_8ln24")
 text = "Lots"
-metadata/ResourceChance = 0.25
 
-[node name="ResourcesBalanced" type="CheckBox" parent="MarginContainer/VBoxContainer/Resources/ResourceOptions" unique_id=1464628469]
+[node name="AbundanceBalanced" type="CheckButton" parent="MarginContainer/VBoxContainer/Resources/ResourceOptions" unique_id=1052972989]
 layout_mode = 2
 button_pressed = true
 button_group = ExtResource("3_8ln24")
 text = "Balanced"
-metadata/ResourceChance = 0.15
 
-[node name="ResourcesScarce" type="CheckBox" parent="MarginContainer/VBoxContainer/Resources/ResourceOptions" unique_id=1674666820]
+[node name="AbundanceScarce" type="CheckButton" parent="MarginContainer/VBoxContainer/Resources/ResourceOptions" unique_id=282094063]
 layout_mode = 2
 button_group = ExtResource("3_8ln24")
 text = "Scarce"
-metadata/ResourceChance = 0.05
 
 [node name="StartGameButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=909491845]
 layout_mode = 2

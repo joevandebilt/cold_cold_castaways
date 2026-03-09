@@ -2,8 +2,6 @@ class_name MapController
 
 extends TileMapLayer
 
-const MAP_SIZE = 128
-const RESOURCE_AVAILABILITY = 0.15
 const BORDER_THICKNESS = 8
 const NOISE_SCALE = 0.08
 const ISLAND_RADIUS_FACTOR = 0.95
@@ -15,6 +13,9 @@ const ICE_TERRAIN = 2
 
 var noise := FastNoiseLite.new()
 var camp : Node2D
+
+var MAP_SIZE = global.map_size
+var RESOURCE_AVAILABILITY = global.resource_abundance
 
 var sea_cells: Array[Vector2i] = []
 var ground_cells: Array[Vector2i] = []
