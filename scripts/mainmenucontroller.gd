@@ -30,9 +30,9 @@ func start_game():
 	
 	get_tree().change_scene_to_file("res://scenes/game_scene.tscn")
 	
-func set_map_size(size : int):
-	global.map_size = size
+func set_map_size(new_map_size : int):
+	global.map_size = new_map_size
 	
 	
-func set_resource_abundance(percent : float):
-	global.resource_abundance = percent
+func set_resource_abundance(resource_percent : float):
+	global.resource_abundance = resource_percent
