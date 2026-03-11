@@ -25,13 +25,19 @@ jobs:
           relative_project_path: ./
           archive_output: true
           verbose: true
-          presets_to_export: "web"
+          presets_to_export: "Web"
 
+      - name: Install butler
+        run: |
+          curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+          unzip butler.zip
+          chmod +x butler
+          ./butler -V
+      
       - name: Upload to Itch.io
-        uses: josephbmanley/butler-publish-itchio-action@master
         env:
-          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
-          CHANNEL: html5
-          ITCH_GAME: cold-cold-castaways       # ← your game's URL slug on Itch
-          ITCH_USER: joeborder   # ← your Itch.io username
-          PACKAGE: ${{ steps.export.outputs.archive_directory }}/Web.zip
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+        run: |
+          ./butler push \
+          /home/runner/.local/share/godot/archives/Web.zip \
+          joeborder/cold-cold-castaways:html5
