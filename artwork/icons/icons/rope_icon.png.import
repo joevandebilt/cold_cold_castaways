@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drvt7ttfyptiu"
-path="res://.godot/imported/torch_icons.png-000b7d099717b60cb5bf496ba132733e.ctex"
+uid="uid://bakr1ulur7025"
+path="res://.godot/imported/rope_icon.png-e8e2d3b43c0ca492b0a55bb704d0765a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://artwork/menus/icons/torch_icons.png"
-dest_files=["res://.godot/imported/torch_icons.png-000b7d099717b60cb5bf496ba132733e.ctex"]
+source_file="res://artwork/icons/icons/rope_icon.png"
+dest_files=["res://.godot/imported/rope_icon.png-e8e2d3b43c0ca492b0a55bb704d0765a.ctex"]
 
 [params]
 

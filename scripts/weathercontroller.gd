@@ -65,7 +65,7 @@ func set_weather(weathermaterial: ParticleProcessMaterial, speedscale: int, amou
 
 func get_duration() -> int:
 	var duration  = randi_range(60, 180)
-	duration = 30
+	#duration = 30
 	print("Weather will last {0} seconds".format([duration]))	
 	return duration
 

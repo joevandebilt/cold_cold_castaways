@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjxktyslgcd3k"
-path="res://.godot/imported/medecine_icons.png-09f1ab87396a11480b9d7cd9b26a4e12.ctex"
+uid="uid://bpfeivd7rhaoi"
+path="res://.godot/imported/thermo_icon.png-37545b34767ac114f1a27e01a977f965.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://artwork/menus/icons/medecine_icons.png"
-dest_files=["res://.godot/imported/medecine_icons.png-09f1ab87396a11480b9d7cd9b26a4e12.ctex"]
+source_file="res://artwork/icons/icons/thermo_icon.png"
+dest_files=["res://.godot/imported/thermo_icon.png-37545b34767ac114f1a27e01a977f965.ctex"]
 
 [params]
 

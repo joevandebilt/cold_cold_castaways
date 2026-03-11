@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcpmt1elkqpwe"
-path="res://.godot/imported/wood_icon.png-59bc33f9ffe5b16901adc0c3dfaff4c0.ctex"
+uid="uid://bc0e7137fsy2s"
+path="res://.godot/imported/food_icon.png-0643aee39e7e5a935063ed3effbfd4d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://artwork/menus/icons/wood_icon.png"
-dest_files=["res://.godot/imported/wood_icon.png-59bc33f9ffe5b16901adc0c3dfaff4c0.ctex"]
+source_file="res://artwork/icons/icons/food_icon.png"
+dest_files=["res://.godot/imported/food_icon.png-0643aee39e7e5a935063ed3effbfd4d1.ctex"]
 
 [params]
 

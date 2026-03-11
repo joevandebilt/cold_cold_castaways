@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvukh317303wu"
-path="res://.godot/imported/fibre_icons.png-bc44407d80901872da2f3e665a98165b.ctex"
+uid="uid://dcpmt1elkqpwe"
+path="res://.godot/imported/wood_icon.png-1311aa599e9159b521c2a93fbf2f0a90.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://artwork/menus/icons/fibre_icons.png"
-dest_files=["res://.godot/imported/fibre_icons.png-bc44407d80901872da2f3e665a98165b.ctex"]
+source_file="res://artwork/icons/icons/wood_icon.png"
+dest_files=["res://.godot/imported/wood_icon.png-1311aa599e9159b521c2a93fbf2f0a90.ctex"]
 
 [params]
 

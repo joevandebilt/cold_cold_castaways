@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bakr1ulur7025"
-path="res://.godot/imported/rope_icon.png-8da38ef072ff4520ddc038b4d0f2d4a0.ctex"
+uid="uid://cjxktyslgcd3k"
+path="res://.godot/imported/medecine_icons.png-ac07482eff4ef21f2dc8e208fd251cc0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://artwork/menus/icons/rope_icon.png"
-dest_files=["res://.godot/imported/rope_icon.png-8da38ef072ff4520ddc038b4d0f2d4a0.ctex"]
+source_file="res://artwork/icons/icons/medecine_icons.png"
+dest_files=["res://.godot/imported/medecine_icons.png-ac07482eff4ef21f2dc8e208fd251cc0.ctex"]
 
 [params]
 

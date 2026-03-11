@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daa3wp0nn3grx"
-path="res://.godot/imported/arrow_icons.png-1b0cf3b4b069d1f992378d91220e8b1f.ctex"
+uid="uid://o7hv1wdm2s23"
+path="res://.godot/imported/health_icon.png-7694d998bad6149d27384654d7facab9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://artwork/menus/icons/arrow_icons.png"
-dest_files=["res://.godot/imported/arrow_icons.png-1b0cf3b4b069d1f992378d91220e8b1f.ctex"]
+source_file="res://artwork/icons/icons/health_icon.png"
+dest_files=["res://.godot/imported/health_icon.png-7694d998bad6149d27384654d7facab9.ctex"]
 
 [params]
 
