@@ -397,6 +397,7 @@ z_index = 1
 shape = SubResource("CircleShape2D_rvs2r")
 
 [node name="BoatMenu" type="PanelContainer" parent="Camp/Boat" unique_id=480261999]
+visible = false
 z_index = 3
 offset_left = 33.0
 offset_top = -100.0
@@ -582,13 +583,29 @@ shape = SubResource("CircleShape2D_liy57")
 [node name="WeatherSystem" type="GPUParticles2D" parent="Camp/Player" unique_id=988730649]
 z_index = 10
 material = SubResource("CanvasItemMaterial_r47aq")
-position = Vector2(0, -131)
+position = Vector2(0, -141)
 amount = 200
 lifetime = 10.0
 preprocess = 30.0
 speed_scale = 5.0
 process_material = ExtResource("13_r47aq")
 script = ExtResource("27_rw4oa")
+
+[node name="WeatherDarkness" type="ColorRect" parent="Camp/Player/WeatherSystem" unique_id=1361967035]
+z_index = 10
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -409.0
+offset_right = 960.0
+offset_bottom = 671.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
 
 [node name="Hunter" type="Area2D" parent="Camp" unique_id=53359647]
 z_index = 1
@@ -604,6 +621,7 @@ shape = SubResource("CircleShape2D_pb36m")
 sprite_frames = SubResource("SpriteFrames_xgstd")
 
 [node name="NpcMenu" type="PanelContainer" parent="Camp/Hunter" unique_id=381813369]
+visible = false
 z_index = 3
 offset_left = 20.0
 offset_top = -10.0

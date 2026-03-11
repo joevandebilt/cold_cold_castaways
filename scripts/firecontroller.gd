@@ -7,10 +7,9 @@ var fire_menu : PanelContainer
 
 var player : PlayerController
 
-var add1button : TextureButton
-var add10button : TextureButton
-var add100button : TextureButton
+var add_wood_button : Button
 
+var grab_torch_section: HBoxContainer
 var grab_torch_button : Button
 
 var fuelLabel : Label
@@ -24,15 +23,11 @@ func _ready() -> void:
 	fire_sprite = get_node("FireSprite")
 	fire_menu = get_node("FireMenu")
 	
-	add1button = get_node("FireMenu/Margins/VBoxContainer/AddFuelButtons/Add1FuelButton")
-	add10button = get_node("FireMenu/Margins/VBoxContainer/AddFuelButtons/Add10FuelButton")
-	add100button = get_node("FireMenu/Margins/VBoxContainer/AddFuelButtons/Add100FuelButton")
+	add_wood_button = get_node("FireMenu/Margins/VBoxContainer/AddFuelButtons/AddWoodButton")
+	add_wood_button.pressed.connect(add_fuel.bind(10))
 	
-	add1button.pressed.connect(add_fuel.bind(1))
-	add10button.pressed.connect(add_fuel.bind(10))
-	add100button.pressed.connect(add_fuel.bind(100))
-	
-	grab_torch_button = get_node("FireMenu/Margins/VBoxContainer/HBoxContainer/TakeTorchButton")
+	grab_torch_section = get_node("FireMenu/Margins/VBoxContainer/TakeTorchButtons")
+	grab_torch_button = get_node("FireMenu/Margins/VBoxContainer/TakeTorchButtons/TakeTorchButton")
 	grab_torch_button.pressed.connect(grab_torch)
 	
 	fuelLabel = get_node("FireMenu/Margins/VBoxContainer/FuelAvailableLabel")
@@ -52,12 +47,17 @@ func _process(delta: float) -> void:
 	fuel_available -= decay_rate * delta
 	fuel_available = clamp(fuel_available, 0, 9999999)
 	
-	fuelLabel.text = "Wood Available: {0}".format([roundi(fuel_available)])
+	fuelLabel.text = "Wood on campfire: {0}".format([roundi(fuel_available)])
 	
 	if fuel_available == 0:
 		fire_sprite.animation = "fire_out"
 		if player.near_fire and overlaps_body(player):
 			player.near_fire = false
+	
+	if fuel_available < 20:
+		grab_torch_section.hide()
+	else:
+		grab_torch_section.show()
 
 func _on_enter(body: Node2D):
 	if body.name == "PlayerInteractions":

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1dnnmumotrh6"
-path="res://.godot/imported/Title Card.png-8ffcf1035147d5f08e2ac43caeed109a.ctex"
+path="res://.godot/imported/Title Card.png-6113e8ddbaa371bc071234194c6b2f55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Title Card.png"
-dest_files=["res://.godot/imported/Title Card.png-8ffcf1035147d5f08e2ac43caeed109a.ctex"]
+source_file="res://artwork/Title Card.png"
+dest_files=["res://.godot/imported/Title Card.png-6113e8ddbaa371bc071234194c6b2f55.ctex"]
 
 [params]
 

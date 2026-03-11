@@ -4,24 +4,11 @@
 [ext_resource type="SpriteFrames" uid="uid://gh53jw8j3ash" path="res://artwork/sprites/fire_sprite.tres" id="2_nocps"]
 [ext_resource type="LabelSettings" uid="uid://d3ihwbkwtpaj2" path="res://artwork/fonts/context_menu_label_settings.tres" id="3_4wk6u"]
 [ext_resource type="Texture2D" uid="uid://dcpmt1elkqpwe" path="res://artwork/menus/icons/wood_icon.png" id="4_gtroi"]
-[ext_resource type="Texture2D" uid="uid://pxnqk5im3hec" path="res://artwork/menus/icons/number_icons.png" id="5_g05rx"]
 [ext_resource type="Texture2D" uid="uid://drvt7ttfyptiu" path="res://artwork/menus/icons/torch_icons.png" id="6_v34m2"]
 [ext_resource type="FontFile" uid="uid://bh8kladnacpwl" path="res://artwork/fonts/Tiny5-Regular.ttf" id="7_itnrw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mw25s"]
 radius = 93.00538
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ay1a"]
-atlas = ExtResource("5_g05rx")
-region = Rect2(0, 0, 11, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ldkr4"]
-atlas = ExtResource("5_g05rx")
-region = Rect2(0, 8, 11, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_liy57"]
-atlas = ExtResource("5_g05rx")
-region = Rect2(11, 24, 11, 8)
 
 [node name="Fire" type="Area2D" unique_id=1547280524]
 collision_layer = 3
@@ -38,15 +25,14 @@ z_index = 1
 shape = SubResource("CircleShape2D_mw25s")
 
 [node name="FireMenu" type="PanelContainer" parent="." unique_id=1066645170]
-visible = false
 z_index = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 26.0
 offset_top = -31.0
-offset_right = 107.0
-offset_bottom = 28.0
+offset_right = 104.0
+offset_bottom = 8.0
 grow_horizontal = 2
 
 [node name="Margins" type="MarginContainer" parent="FireMenu" unique_id=954118588]
@@ -63,7 +49,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 4
-text = "Wood Remaining: 200"
+text = "Wood on campfire: 0"
 label_settings = ExtResource("3_4wk6u")
 
 [node name="AddFuelButtons" type="HBoxContainer" parent="FireMenu/Margins/VBoxContainer" unique_id=1861597808]
@@ -74,29 +60,21 @@ layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("4_gtroi")
 
-[node name="Add1FuelButton" type="TextureButton" parent="FireMenu/Margins/VBoxContainer/AddFuelButtons" unique_id=1946027083]
+[node name="AddWoodButton" type="Button" parent="FireMenu/Margins/VBoxContainer/AddFuelButtons" unique_id=740533868]
 layout_mode = 2
-size_flags_vertical = 4
-texture_normal = SubResource("AtlasTexture_5ay1a")
+theme_override_fonts/font = ExtResource("7_itnrw")
+theme_override_font_sizes/font_size = 7
+text = "Add Wood"
 
-[node name="Add10FuelButton" type="TextureButton" parent="FireMenu/Margins/VBoxContainer/AddFuelButtons" unique_id=1716431234]
-layout_mode = 2
-size_flags_vertical = 4
-texture_normal = SubResource("AtlasTexture_ldkr4")
-
-[node name="Add100FuelButton" type="TextureButton" parent="FireMenu/Margins/VBoxContainer/AddFuelButtons" unique_id=728639285]
-layout_mode = 2
-size_flags_vertical = 4
-texture_normal = SubResource("AtlasTexture_liy57")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="FireMenu/Margins/VBoxContainer" unique_id=951683328]
+[node name="TakeTorchButtons" type="HBoxContainer" parent="FireMenu/Margins/VBoxContainer" unique_id=951683328]
+visible = false
 layout_mode = 2
 
-[node name="TorchIcon" type="TextureRect" parent="FireMenu/Margins/VBoxContainer/HBoxContainer" unique_id=1881852474]
+[node name="TorchIcon" type="TextureRect" parent="FireMenu/Margins/VBoxContainer/TakeTorchButtons" unique_id=1881852474]
 layout_mode = 2
 texture = ExtResource("6_v34m2")
 
-[node name="TakeTorchButton" type="Button" parent="FireMenu/Margins/VBoxContainer/HBoxContainer" unique_id=428932876]
+[node name="TakeTorchButton" type="Button" parent="FireMenu/Margins/VBoxContainer/TakeTorchButtons" unique_id=428932876]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_itnrw")
 theme_override_font_sizes/font_size = 7

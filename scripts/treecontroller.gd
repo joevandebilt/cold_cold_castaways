@@ -26,7 +26,6 @@ func _ready() -> void:
 	add_child(timer)
 	
 func _collide(body: Node2D):
-	print(body.name)
 	if body.name == "PlayerInteractions":
 		_knock()
 

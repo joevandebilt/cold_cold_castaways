@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://bh8kladnacpwl" path="res://artwork/fonts/Tiny5-Regular.ttf" id="2_bqqt6"]
 [ext_resource type="ButtonGroup" uid="uid://b1gpgmxvaxuab" path="res://groups/map_size_button_group.tres" id="2_wu84c"]
 [ext_resource type="ButtonGroup" uid="uid://bwhistcvs6ct0" path="res://groups/resources_button_group.tres" id="3_8ln24"]
+[ext_resource type="Texture2D" uid="uid://1dnnmumotrh6" path="res://artwork/Title Card.png" id="5_8ln24"]
 
 [sub_resource type="Theme" id="Theme_0nqlu"]
 
@@ -19,6 +20,7 @@ map_size_buttons = ExtResource("2_wu84c")
 resource_buttons = ExtResource("3_8ln24")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=791637039]
+z_index = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,6 +39,9 @@ layout_mode = 2
 [node name="GameOverScreen" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=2103851493]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
 theme_override_font_sizes/normal_font_size = 36
 text = "Cold Cold Castaways"
 fit_content = true
@@ -56,6 +61,8 @@ offset_left = -556.0
 offset_right = 556.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
 text = "Map Size"
 horizontal_alignment = 1
 
@@ -76,12 +83,16 @@ alignment = 1
 
 [node name="MapSizeSmall" type="CheckBox" parent="MarginContainer/VBoxContainer/MapSize/MapSizeOptions" unique_id=96618676]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 button_group = ExtResource("2_wu84c")
 text = "Small (64x64)"
 metadata/MapSize = 64
 
 [node name="MapSizeMedium" type="CheckBox" parent="MarginContainer/VBoxContainer/MapSize/MapSizeOptions" unique_id=176181977]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 button_pressed = true
 button_group = ExtResource("2_wu84c")
 text = "Medium (128x128)"
@@ -89,6 +100,8 @@ metadata/MapSize = 128
 
 [node name="MapSizeBig" type="CheckBox" parent="MarginContainer/VBoxContainer/MapSize/MapSizeOptions" unique_id=1219273391]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 button_group = ExtResource("2_wu84c")
 text = "Big (256x256)"
 metadata/MapSize = 256
@@ -106,6 +119,8 @@ offset_left = -556.0
 offset_right = 556.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
 text = "Resources"
 horizontal_alignment = 1
 
@@ -126,12 +141,14 @@ alignment = 1
 
 [node name="ResourcesLots" type="CheckBox" parent="MarginContainer/VBoxContainer/Resources/ResourceOptions" unique_id=1609482132]
 layout_mode = 2
+theme_override_constants/outline_size = 10
 button_group = ExtResource("3_8ln24")
 text = "Lots"
 metadata/ResourceChance = 0.25
 
 [node name="ResourcesBalanced" type="CheckBox" parent="MarginContainer/VBoxContainer/Resources/ResourceOptions" unique_id=1464628469]
 layout_mode = 2
+theme_override_constants/outline_size = 10
 button_pressed = true
 button_group = ExtResource("3_8ln24")
 text = "Balanced"
@@ -139,6 +156,7 @@ metadata/ResourceChance = 0.15
 
 [node name="ResourcesScarce" type="CheckBox" parent="MarginContainer/VBoxContainer/Resources/ResourceOptions" unique_id=1674666820]
 layout_mode = 2
+theme_override_constants/outline_size = 10
 button_group = ExtResource("3_8ln24")
 text = "Scarce"
 metadata/ResourceChance = 0.05
@@ -147,6 +165,7 @@ metadata/ResourceChance = 0.05
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_bqqt6")
 theme_override_font_sizes/font_size = 58
 text = "Start Game"
@@ -155,24 +174,28 @@ text = "Start Game"
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_bqqt6")
 theme_override_font_sizes/font_size = 32
 text = "Quit Game"
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=210197166]
-z_index = 1
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 10
-
-[node name="Copyright" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PanelContainer" unique_id=1786194269]
+[node name="Copyright" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1786194269]
 layout_mode = 2
 size_flags_vertical = 10
 theme_override_fonts/normal_font = ExtResource("2_bqqt6")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 10
 text = "Borderpost Games 2026
-Moray Gamejam"
+Moray Gamejam 2026"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=526154133]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_8ln24")
