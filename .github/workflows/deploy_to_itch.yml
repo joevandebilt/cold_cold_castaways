@@ -25,7 +25,7 @@ jobs:
           relative_project_path: ./
           archive_output: true
           verbose: true
-          presets_to_export: "Web"
+          presets_to_export: "Web-Itch"
 
       - name: Install butler
         run: |
