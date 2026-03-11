@@ -39,5 +39,5 @@ jobs:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
         run: |
           ./butler push \
-          /home/runner/.local/share/godot/archives/Web.zip \
+          /home/runner/.local/share/godot/archives/Web-Itch.zip \
           joeborder/cold-cold-castaways:html5
