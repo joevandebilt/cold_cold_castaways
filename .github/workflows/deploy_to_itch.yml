@@ -34,4 +34,4 @@ jobs:
           CHANNEL: html5
           ITCH_GAME: cold-cold-castaways       # ← your game's URL slug on Itch
           ITCH_USER: joeborder   # ← your Itch.io username
-          PACKAGE: ${{ steps.export.outputs.archive_directory }}/*.zip
+          PACKAGE: ${{ steps.export.outputs.archive_directory }}/Web.zip
